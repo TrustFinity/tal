@@ -130,6 +130,9 @@
     </section>
     <section id="features" class="features">
       <div class="container">
+        <div class="row d-flex text-center">
+          <h2 class="h3 mb-5 text-center">App main features</h2>
+        </div>
         <div class="row d-flex align-items-center">
           <div class="text col-lg-6 order-2 order-lg-1">
             <div class="icon"><img src="img/medal.svg" alt="..." class="img-fluid"></div>
