@@ -49,8 +49,9 @@
                         @else
                             <li> <a href="/survey/create">Create New Survey</a></li>
                             <li> <a href="/survey-question/create">Add Questions</a></li>
-                            <li> <a href="/user/create"> Create New Admin</a></li>
-                            <li> <a href="/rewards/pay"> Pay Rewards</a></li>
+                            <li> <a href="/register"> Create New Admin</a></li>
+                            <li> <a href="#"> Pay Rewards</a></li>
+                            {{-- <li> <a href="/rewards/pay"> Pay Rewards</a></li> --}}
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ ucwords(Auth::user()->name) }} <span class="caret"></span>
