@@ -13,7 +13,7 @@ class RespondentResponseSeeder extends Seeder
      */
     public function run()
     {
-    	RespondentResponse::truncate();
+    	// RespondentResponse::truncate();
     	for ($i=0; $i < SurveyRespondent::all()->count(); $i++) {
     		factory(RespondentResponse::class)->make()->save();
     	}

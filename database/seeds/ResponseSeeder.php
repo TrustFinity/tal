@@ -14,7 +14,7 @@ class ResponseSeeder extends Seeder
     public function run()
     {
         // $faker = Faker\Factory::create();
-    	QuestionResponse::truncate();
+    	// QuestionResponse::truncate();
     	foreach (SurveyQuestion::all() as $survey_question) {
             QuestionResponse::create([
                 'survey_id' => $survey_question->survey->id,

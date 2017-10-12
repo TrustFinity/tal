@@ -40,7 +40,6 @@
             <li class="nav-item"><a href="#about-us" class="nav-link link-scroll">About Us</a></li>
             <li class="nav-item"><a href="#features" class="nav-link link-scroll">Learn more</a></li>
             <li class="nav-item"><a href="#extra-features" class="nav-link link-scroll">Features</a></li>
-            <li class="nav-item"><a href="{{ url('/login') }}" class="nav-link">Admin Login</a></li>
           </ul>
           <div class="navbar-text">
             <!-- Button trigger modal--><a href="link-to-google-play-store-app" class="btn btn-primary navbar-btn btn-shadow btn-gradient">Download The App Now</a>
@@ -279,9 +278,9 @@
             <h5>More Links</h5>
             <ul class="links list-unstyled">
               <li> <a href="{{ url('/login') }}">Admin Login</a></li>
-              <li> <a href="#">Postly</a></li>
+              {{-- <li> <a href="#">Postly</a></li>
               <li> <a href="#">Iris Vor Arnim</a></li>
-              <li> <a href="#">Yapital</a></li>
+              <li> <a href="#">Yapital</a></li> --}}
             </ul>
           </div>
           <div class="col-lg-3 col-md-6">
