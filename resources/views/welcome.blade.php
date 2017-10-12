@@ -33,7 +33,7 @@
   <body>
     <!-- navbar-->
     <header class="header">
-      <nav class="navbar navbar-expand-lg fixed-top"><a href="index.html" class="navbar-brand">TAL-SURVEYS</a>
+      <nav class="navbar navbar-expand-lg fixed-top"><a href="{{url('/')}}" class="navbar-brand">TAL-SURVEYS</a>
         <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><span></span><span></span><span></span></button>
         <div id="navbarSupportedContent" class="collapse navbar-collapse">
           <ul class="navbar-nav ml-auto align-items-start align-items-lg-center">
@@ -286,28 +286,26 @@
           <div class="col-lg-3 col-md-6">
             <h5>More Links</h5>
             <ul class="links list-unstyled">
-              <li> <a href="{{ url('/login') }}">Admin Login</a></li>
-              {{-- <li> <a href="#">Postly</a></li>
-              <li> <a href="#">Iris Vor Arnim</a></li>
-              <li> <a href="#">Yapital</a></li> --}}
+              <li><a href="{{ url('/login') }}">Admin Login</a></li>
+              <li><a href="#about-us">About Us</a></li>
             </ul>
           </div>
           <div class="col-lg-3 col-md-6">
-            <h5>Selected Cases</h5>
+            <h5>Platform</h5>
             <ul class="links list-unstyled">
-              <li> <a href="#">Guess Conntect</a></li>
-              <li> <a href="#">Postly</a></li>
-              <li> <a href="#">Iris Vor Arnim</a></li>
-              <li> <a href="#">Yapital</a></li>
+              <li><a href="#features">Learn more</a></li>
+              <li><a href="#extra-features">Features</a></li>
             </ul>
           </div>
           <div class="col-lg-3 col-md-6">
-            <h5>Selected Cases</h5>
+            <h5>Social Media</h5>
+            <p>These are our official social media platforms.</p>
             <ul class="links list-unstyled">
-              <li> <a href="#">Guess Conntect</a></li>
-              <li> <a href="#">Postly</a></li>
-              <li> <a href="#">Iris Vor Arnim</a></li>
-              <li> <a href="#">Yapital</a></li>
+              <li class="list-inline-item"><a href="https://www.facebook.com/TraceAfricaLogistics/"
+                  target="_blank" title="Facebook"><i class="fa fa-facebook">
+                  </i></a>
+              </li>
+              <li class="list-inline-item"><a href="https://twitter.com/TraceAfricaLog" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></li>
             </ul>
           </div>
         </div>
