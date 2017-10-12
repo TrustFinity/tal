@@ -80,7 +80,7 @@
     <section id="hero" class="hero hero-home bg-gray">
       <div class="container">
         <div class="row d-flex">
-          <div class="col-lg-6 text order-2 order-lg-1">
+          <div class="col-lg-6 text order-2 order-lg-1 tag-line">
             <h1>Unlock the value of opinions</h1>
             <p class="hero-text">TAL-SURVEYS helps brands and businesses understand their customers better and engage with them through advertising research and content.</p>
             <div class="CTA">
@@ -88,7 +88,10 @@
                 <a href="link-to-google-play-store-app" class="btn btn-outline-primary">Download The App Now</a>
             </div>
           </div>
-          <div class="col-lg-6 order-1 order-lg-2"><img src="img/Macbook.png" alt="..." class="img-fluid"></div>
+          <div class="col-lg-6 order-1 order-lg-2">
+              {{-- <img src="img/Macbook.png" alt="..." class="img-fluid"> --}}
+              <img src="img/login_nexus5x-portrait.png" alt="..." class="img-fluid brand-image">
+          </div>
         </div>
       </div>
     </section>
@@ -268,10 +271,13 @@
               <li><a href="tel:+256-414-699-185">+256-414-699-185</a></li>
             </ul>
             <ul class="social-icons list-inline">
-              <li class="list-inline-item"><a href="#" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-              <li class="list-inline-item"><a href="#" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-              <li class="list-inline-item"><a href="#" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a></li>
-              <li class="list-inline-item"><a href="#" target="_blank" title="Pinterest"><i class="fa fa-pinterest"></i></a></li>
+              <li class="list-inline-item"><a href="https://www.facebook.com/TraceAfricaLogistics/"
+                  target="_blank" title="Facebook"><i class="fa fa-facebook">
+                  </i></a>
+              </li>
+              <li class="list-inline-item"><a href="https://twitter.com/TraceAfricaLog" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+              {{-- <li class="list-inline-item"><a href="#" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a></li>
+              <li class="list-inline-item"><a href="#" target="_blank" title="Pinterest"><i class="fa fa-pinterest"></i></a></li> --}}
             </ul>
           </div>
           <div class="col-lg-3 col-md-6">
