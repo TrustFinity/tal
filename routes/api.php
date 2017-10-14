@@ -21,8 +21,8 @@ Route::group([
     'namespace' => 'Api\v1',
     'prefix'=>'/v1'
 ], function() {
-	Route::get('/all-surveys', 'SurveyApiController@getAll');
-	Route::get('/get-for-user', 'SurveyApiController@getForUser');
+	Route::get('/all-surveys', 'SurveyApiController@getAnswered');
+	Route::get('/get-for-user', 'SurveyApiController@getNew');
 	Route::get('/get-profile', 'SurveyApiController@getProfile');
 	Route::get('/get-survey-question/{survey}', 'SurveyApiController@getSurveyQuestions');
 	Route::post('/answer/{survey}', 'SurveyApiController@answerSurvey');

@@ -11,28 +11,26 @@ use App\Models\Responses\RespondentResponse;
 class SurveyApiController
 {
 
-	public function getAll()
+	public function getAnswered(Request $request)
 	{
 		return RespondentResponse::with('survey')
-								 ->with('survey_question')
-								 ->with('respondent')
+								 //->whereIn('facebook_id', [$request->facebook_id])
 								 ->orderBy('id', 'desc')
 								 ->get();
 	}
 
-	public function getForUser(Request $request)
+	public function getNew(Request $request)
 	{
 		return RespondentResponse::with('survey')
 								 ->with('survey_question')
-								 ->with('respondent')
-								 ->where('survey_respondent_id', $request->respondent_id)
+								 // ->whereNotIn('facebook_id', [$request->facebook_id])
 								 ->orderBy('id', 'desc')
 								 ->get();
 	}
 
-	public function getSurveyQuestions(Survey $survey)
+	public function getSurveyQuestions(Request $survey)
 	{
-		return SurveyQuestion::with('responses')
+		return SurveyQuestion::with('survey')
 							 ->where('survey_id', $survey->id)
 							 ->get();
 	}

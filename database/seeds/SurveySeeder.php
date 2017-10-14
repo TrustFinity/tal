@@ -13,7 +13,7 @@ class SurveySeeder extends Seeder
     public function run()
     {
         // Survey::truncate();
-        for ($i=0; $i < 5; $i++) {
+        for ($i=0; $i < 20; $i++) {
         	factory(Survey::class)->make()->save();
         }
     }

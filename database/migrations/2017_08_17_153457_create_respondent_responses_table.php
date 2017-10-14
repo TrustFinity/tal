@@ -18,6 +18,7 @@ class CreateRespondentResponsesTable extends Migration
             $table->integer('survey_id')->unsigned()->index();
             $table->integer('survey_question_id')->unsigned()->index();
             $table->integer('survey_respondent_id')->unsigned()->index();
+            $table->integer('facebook_id')->nullable()->index();
             $table->text('answer')->nullable();
             $table->timestamps();
             $table->foreign('survey_id')->references('id')->on('surveys')->onDelete('cascade');

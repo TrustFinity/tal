@@ -8,6 +8,6 @@ $factory->define(App\Models\Surveys\Survey::class, function (Faker\Generator $fa
     return [
         'user_id' => $user_id,
         'name' => $faker->name,
-        'description' => $faker->sentence
+        'description' => $faker->paragraph
     ];
 });
