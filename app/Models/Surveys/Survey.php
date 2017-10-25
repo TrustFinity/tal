@@ -11,7 +11,8 @@ class Survey extends Model
 {
 	protected $fillable = [
 		'name',
-		'description'
+		'description',
+		'restrictions',
 	];
 
 	public static function make(array $params)

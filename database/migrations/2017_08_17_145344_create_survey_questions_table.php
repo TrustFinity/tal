@@ -17,6 +17,7 @@ class CreateSurveyQuestionsTable extends Migration
             $table->increments('id');
             $table->integer('survey_id')->unsigned()->index();
             $table->text('question');
+            $table->enum('type', ['open', 'objective'])->default('objective');
             $table->timestamps();
 
             $table->foreign('survey_id')->references('id')->on('surveys')->onDelete('cascade');

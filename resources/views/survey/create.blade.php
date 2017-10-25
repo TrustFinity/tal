@@ -23,6 +23,15 @@
 					<textarea type="text" name="description" id="description" class="form-control" required>
 					</textarea>
 				</div>
+				<div class="form-group">
+					<span><label for="description">Survey Restrictions</label></span> (<span class="text-danger">Required</span>)
+					<br>
+					<span>List all the restrictions on this survey like age, occupation or location. Enter comma seperated values.</span>
+					<input class="form-control" type="text" 
+						name="restrictions" 
+						placeholder="eg. 23, Finance, Gulu">
+					</textarea>
+				</div>
 			</div>
 			<div class="panel-footer">
 				<button class="btn btn-success"> Create</button>

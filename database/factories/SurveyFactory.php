@@ -8,6 +8,7 @@ $factory->define(App\Models\Surveys\Survey::class, function (Faker\Generator $fa
     return [
         'user_id' => $user_id,
         'name' => $faker->name,
+        'restrictions' => $faker->randomElement(['16', '23', 'Finance', 'IT', 'Gulu']),
         'description' => $faker->paragraph
     ];
 });

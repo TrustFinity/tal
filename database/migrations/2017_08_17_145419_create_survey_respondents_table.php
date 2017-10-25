@@ -20,7 +20,7 @@ class CreateSurveyRespondentsTable extends Migration
             $table->string('lastname')->nullable();
             $table->date('dob')->nullable();
             $table->string('image_url')->nullable();
-            $table->enum('occupation', ['IT/Technology','Engineering', 'Finance', 'Farmer'])->nullable();
+            $table->string('occupation')->nullable();
             $table->integer('phone_number')->nullable();
             $table->integer('facebook_id');
             $table->string('email')->nullable();
