@@ -14,7 +14,8 @@ class SurveyController extends Controller
      */
     public function index()
     {
-
+        $surveys = Survey::all();
+        return view('survey.index', compact('surveys'));
     }
 
     /**
@@ -24,7 +25,8 @@ class SurveyController extends Controller
      */
     public function create()
     {
-        return view('survey.create');
+        $survey = new Survey;
+        return view('survey.create', compact('survey'));
     }
 
     /**
@@ -42,15 +44,9 @@ class SurveyController extends Controller
         return redirect('/survey-question/create');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Survey  $survey
-     * @return \Illuminate\Http\Response
-     */
     public function show(Survey $survey)
     {
-        //
+        return view('survey.edit', compact('survey'));
     }
 
     /**
@@ -61,7 +57,7 @@ class SurveyController extends Controller
      */
     public function edit(Survey $survey)
     {
-        //
+        return view('survey.edit', compact('survey'));
     }
 
     /**
@@ -73,7 +69,7 @@ class SurveyController extends Controller
      */
     public function update(Request $request, Survey $survey)
     {
-        //
+        return $survey;
     }
 
     /**

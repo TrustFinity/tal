@@ -23,6 +23,7 @@ class SurveyApiController
 	{
 		return RespondentResponse::with('survey')
 								 ->with('survey_question')
+								 ->where('is_open', true)
 								 // ->whereNotIn('facebook_id', [$request->facebook_id])
 								 ->orderBy('id', 'desc')
 								 ->get();
