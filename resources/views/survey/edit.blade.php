@@ -10,6 +10,7 @@
 		<div class="panel panel-default">
 			<div class="panel-body">
 				{{ csrf_field() }}
+				{{ method_field('PUT') }}
 				<div class="form-group">
 					<span><label for="name">Survey name</label></span> (<span class="text-danger">Required</span>)
 					<br>

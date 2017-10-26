@@ -6,6 +6,9 @@
 	<a href="/survey/create" class="btn btn-success pull-right">Create New</a>
 </div>
 <div class="container">
+	{{ $surveys->links() }}			
+</div>
+<div class="container">
     <div class="panel panel-default">
     	<div class="panel-body">
     		@foreach($surveys as $survey)
@@ -15,5 +18,9 @@
 				<hr class="row">
     		@endforeach
     	</div>
-    </div>				
+    </div>	
+</div>
+<div class="container">
+	{{ $surveys->links() }}			
+</div>
 @endsection
