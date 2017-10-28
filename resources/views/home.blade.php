@@ -9,36 +9,35 @@
                 <div class="panel-heading">Surveys Made</div>
 
                 <div class="panel-body">
-                    <strong>{{ $surveys->count() }} surveys</strong>
+                    <strong class="stats">{{ $surveys->count() }} surveys</strong>
                 </div>
                 <div class="panel-footer">
-
+                    <a href="/survey"> View all</a>
                 </div>
             </div>
         </div>
         <div class="col-sm-3">
             <div class="panel panel-default">
-                <div class="panel-heading">Signed Up Users</div>
+                <div class="panel-heading"> Signed Up Respondents</div>
 
                 <div class="panel-body">
-                    <strong> {{ $respondents }} Users</strong>
+                    <strong class="stats"> {{ $respondents }} Respondents</strong>
                 </div>
 
                 <div class="panel-footer">
-
+                    <a href="/respondents"> View Respondents</a>
                 </div>
 
             </div>
         </div>
         <div class="col-sm-3">
             <div class="panel panel-default">
-                <div class="panel-heading">Surveys Responses</div>
-
+                <div class="panel-heading">Rewards Paid Out</div>
                 <div class="panel-body">
-                    <strong>{{ $respondent_responses }} total responses</strong>
+                    <strong class="stats">{{ $respondent_responses }} total responses</strong>
                 </div>
                 <div class="panel-footer">
-
+                    <a href="/home"> View not available</a>
                 </div>
             </div>
         </div>
@@ -47,11 +46,11 @@
                 <div class="panel-heading">Rewards Paid Out</div>
 
                 <div class="panel-body">
-                    <strong>UGX 2,000,000</strong>
+                    <strong class="stats">UGX 2,000,000</strong>
                 </div>
 
                 <div class="panel-footer">
-
+                    <a href="/payments"> View monthly history</a>
                 </div>
 
             </div>

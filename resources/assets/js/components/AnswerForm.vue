@@ -10,7 +10,7 @@
             </select>
         </div>
         <div class="form-group" v-if="answer_type == 'objective_type'">
-            <span><label for="question">Answer (s)</label></span> (<span class="text-danger">Required</span>)
+            <span><label for="question">Answers</label></span> (<span class="text-danger">Required</span>)
             <br>
             <span>Two or more answers for this quetion depending on the expected outcome</span>
             <div v-for="answer in answers">
@@ -21,8 +21,8 @@
                 <input type="text" v-model="answer"
                        placeholder="Type answers here"
                        class="form-control">
-                <i class="btn btn-default"
-                   @click="addAnswer(answer)"> Add answer </i>
+                <i class="btn btn-default add-btn"
+                   @click="addAnswer(answer)"> Add option</i>
             </span>
         </div>
     </div>
@@ -39,7 +39,7 @@
             }
         },
         created() {
-            console.log('Component mounted.')
+
         },
         methods: {
             addAnswer(answer){
@@ -49,3 +49,32 @@
         },
     }
 </script>
+
+<style scoped>
+    .add-btn {
+        margin-top: 10px;
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

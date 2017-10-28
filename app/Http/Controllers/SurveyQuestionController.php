@@ -42,10 +42,10 @@ class SurveyQuestionController extends Controller
             return back()->withErrors(['failed to save the question']);
         }
         $answers = explode(",", $request->answers);
-        $question_answer = new QuestionResponse();
 
         if (count($answers) > 0) {
             foreach ($answers as $answer) {
+                $question_answer = new QuestionResponse();
                 $question_answer->answer = $answer;
                 $question_answer->survey_id = $request->survey_id;
                 $question_answer->survey_question_id = $survey_question->id;
