@@ -5,54 +5,37 @@
     <h4>Dashboard</h4>
     <div class="row">
         <div class="col-sm-3">
-            <div class="panel panel-default">
-                <div class="panel-heading">Surveys Made</div>
-
-                <div class="panel-body">
-                    <strong class="stats">{{ $surveys->count() }} surveys</strong>
-                </div>
-                <div class="panel-footer">
-                    <a href="/survey"> View all</a>
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h1 class="stats"> {{ $surveys->count() }}</h1>
+                    <p>surveys. <a href="/survey">view all</a></p>
                 </div>
             </div>
         </div>
         <div class="col-sm-3">
-            <div class="panel panel-default">
-                <div class="panel-heading"> Signed Up Respondents</div>
+            <div class="panel panel-primary">
+                <div class="panel-heading"> 
 
-                <div class="panel-body">
-                    <strong class="stats"> {{ $respondents }} Respondents</strong>
-                </div>
-
-                <div class="panel-footer">
-                    <a href="/respondents"> View Respondents</a>
-                </div>
-
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="panel panel-default">
-                <div class="panel-heading">Rewards Paid Out</div>
-                <div class="panel-body">
-                    <strong class="stats">{{ $respondent_responses }} total responses</strong>
-                </div>
-                <div class="panel-footer">
-                    <a href="/home"> View not available</a>
+                    <h1 class="stats"> {{ $respondents }}</h1>
+                    <p>Respondents. <a href="/respondents"> View Respondents</a></p>
                 </div>
             </div>
         </div>
         <div class="col-sm-3">
-            <div class="panel panel-default">
-                <div class="panel-heading">Rewards Paid Out</div>
+            <div class="panel panel-info">
+                <div class="panel-heading">
 
-                <div class="panel-body">
-                    <strong class="stats">UGX 2,000,000</strong>
+                    <h1 class="stats">{{ $respondent_responses }}</h1>
+                    <p>Responses.</p>
                 </div>
-
-                <div class="panel-footer">
-                    <a href="/payments"> View monthly history</a>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="panel panel-danger">
+                <div class="panel-heading">
+                    <h1 class="stats">2,000,000</h1>
+                    <p>In Rewards.<a href="/payments"> Monthly history</a></p>
                 </div>
-
             </div>
         </div>
     </div>
@@ -80,10 +63,6 @@
                 <div class="panel-body">
                     You are logged in!
                 </div>
-
-                <div class="panel-footer">
-                </div>
-
             </div>
         </div>
     </div>

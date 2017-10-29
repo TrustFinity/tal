@@ -48,8 +48,8 @@
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
                             <li> <a href="/">Home</a></li>
-                            <li> <a href="/survey/create">Create New Survey</a></li>
-                            <li> <a href="/survey-question/create">Add Questions</a></li>
+                            <li> <a href="/survey/create">New Survey</a></li>
+                            {{-- <li> <a href="/survey-question/create">Add Questions</a></li> --}}
                             <!-- <li> <a href="/register"> Create New Admin</a></li> -->
                             <li> <a href="#"> Pay Rewards</a></li>
                             {{-- <li> <a href="/rewards/pay"> Pay Rewards</a></li> --}}

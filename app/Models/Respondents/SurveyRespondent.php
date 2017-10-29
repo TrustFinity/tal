@@ -19,7 +19,8 @@ class SurveyRespondent extends Model
 		'district',
 		'region',
 		'country',
-		'facebook_id'
+		'facebook_id',
+		'image_url'
 	];
 
     public function responses()

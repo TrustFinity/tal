@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\RespondentResponse;
 use Illuminate\Http\Request;
+use App\Models\Responses\RespondentResponse;
 
 class RespondentResponseController extends Controller
 {
@@ -14,7 +14,7 @@ class RespondentResponseController extends Controller
      */
     public function index()
     {
-        //
+        return RespondentResponse::where('survey_id', 1)->get();
     }
 
     /**
