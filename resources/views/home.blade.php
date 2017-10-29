@@ -5,7 +5,7 @@
     <h4>Dashboard</h4>
     <div class="row">
         <div class="col-sm-3">
-            <div class="panel panel-success">
+            <div class="panel panel-info">
                 <div class="panel-heading">
                     <h1 class="stats"> {{ $surveys->count() }}</h1>
                     <p>surveys. <a href="/survey">view all</a></p>
@@ -13,7 +13,7 @@
             </div>
         </div>
         <div class="col-sm-3">
-            <div class="panel panel-primary">
+            <div class="panel panel-info">
                 <div class="panel-heading"> 
 
                     <h1 class="stats"> {{ $respondents }}</h1>
@@ -31,7 +31,7 @@
             </div>
         </div>
         <div class="col-sm-3">
-            <div class="panel panel-danger">
+            <div class="panel panel-info">
                 <div class="panel-heading">
                     <h1 class="stats">2,000,000</h1>
                     <p>In Rewards.<a href="/payments"> Monthly history</a></p>

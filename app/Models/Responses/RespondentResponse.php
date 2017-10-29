@@ -10,6 +10,18 @@ use App\Models\Respondents\SurveyRespondent;
 class RespondentResponse extends Model
 {
 
+    protected $fillable = [
+        'survey_respondent_id',
+        'facebook_id',
+        'answer',
+    ];
+
+
+    public static function make(array $params)
+    {
+        return new RespondentResponse($params);
+    }
+
 	public function survey()
     {
     	return $this->belongsTo(Survey::class);

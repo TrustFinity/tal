@@ -10,7 +10,6 @@ use App\Models\Responses\RespondentResponse;
 
 class SurveyApiController
 {
-
 	public function getAnswered(Request $request)
 	{
 		return RespondentResponse::with('survey')
@@ -22,24 +21,33 @@ class SurveyApiController
 	public function getNew(Request $request)
 	{
 		return RespondentResponse::with('survey')
-								 ->with('survey_question')
-								 ->where('is_open', true)
+								 //  with('survey', function ($query) {
+									// $query->where('is_open', true);
+								 //  })
+									->with('survey_question')
 								 // ->whereNotIn('facebook_id', [$request->facebook_id])
 								 // ->whereNotIn('the survey filters)
-								 ->orderBy('id', 'desc')
-								 ->get();
+								    ->orderBy('id', 'desc')
+								    ->get();
 	}
 
-	public function getSurveyQuestions(Request $survey)
+	public function getSurveyQuestions(Survey $survey)
 	{
-		return SurveyQuestion::with('survey')
-							 ->where('survey_id', $survey->id)
+		return Survey::with('survey_questions')
+							 ->where('id', $survey->id)
 							 ->get();
 	}
 
-	public function answerSurvey(Survey $survey, Request $request)
+	public function answerSurvey(Survey $survey, SurveyQuestion $survey_question, Request $request)
 	{
-		return $request->all();
+		$respondent_response = RespondentResponse::make($request->all());
+		$respondent_response->survey_id = $survey->id;
+		$respondent_response->survey_question_id = $survey_question->id;
+
+		if (!$respondent_response->save()) {
+			return 'Failed to record response. Try again';
+		}
+		return 'Response recorded successfully';
 	}
 
 	public function getProfile(Request $request)

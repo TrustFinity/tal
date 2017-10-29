@@ -29,7 +29,7 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/home') }}">
+                    <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
                 </div>
@@ -47,7 +47,7 @@
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
-                            <li> <a href="/">Home</a></li>
+                            <li> <a href="/home">Dashboard</a></li>
                             <li> <a href="/survey/create">New Survey</a></li>
                             {{-- <li> <a href="/survey-question/create">Add Questions</a></li> --}}
                             <!-- <li> <a href="/register"> Create New Admin</a></li> -->
