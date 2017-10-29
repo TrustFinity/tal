@@ -16,10 +16,10 @@ class UserSeeder extends Seeder
         // User::truncate();
     	// $user = factory(User::class)->make();
         $user = new User;
-        $user ->name => 'admin',
-        $user->email => 'admin@tal.com',
-        $user->password => bcrypt('secret'),
-        $user->remember_token => str_random(10)
+        $user->name = 'admin',
+        $user->email = 'admin@tal.com',
+        $user->password = bcrypt('secret'),
+        $user->remember_token = str_random(10)
     	$user->save();
     }
 }
