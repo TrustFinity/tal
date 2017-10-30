@@ -13,12 +13,15 @@ class SurveyApiController
 	public function getAnswered(Request $request)
 	{
 		$facebook_id = $request->facebook_id;
-		Survey::with(['survey_questions' => function ($query) use ($facebook_id){
+		return Survey::whereHas('survey_questions')
+					 ->with(['survey_questions' => function ($query) use ($facebook_id){
 							$query->with('responses')
+								  ->whereHas('respondents_response')
 								  ->with(['respondents_response' => function ($query) use ($facebook_id) {
 								    	$query->whereIn('facebook_id', [$facebook_id]);
 								    }]);
-						}])->get();
+						}])
+					 ->get();
 	}
 
 	public function getNew(Request $request)
@@ -29,7 +32,8 @@ class SurveyApiController
 								  ->with(['respondents_response' => function ($query) use ($facebook_id) {
 								    	$query->whereNotIn('facebook_id', [$facebook_id]);
 								    }]);
-						}])->get();
+						}])->where('is_open', 1)
+							->get();
 	}
 
 	public function getSurveyQuestions(Survey $survey)
