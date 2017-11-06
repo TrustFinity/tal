@@ -20,3 +20,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('survey', 'SurveyController');
 Route::resource('survey-question', 'SurveyQuestionController');
 Route::resource('respondent-response', 'RespondentResponseController');
+
+Route::get('survey/{survey}/manage-questions', 'SurveyController@manageQuestions');

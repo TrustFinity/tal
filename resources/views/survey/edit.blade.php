@@ -49,6 +49,11 @@
 				<button class="btn btn-success">Update</button>
 			</div>
     	</div>
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<a href="/survey/{{$survey->id}}/manage-questions">Click to Manage Questions</a>
+			</div>
+		</div>
 	</form>
 
 @endsection

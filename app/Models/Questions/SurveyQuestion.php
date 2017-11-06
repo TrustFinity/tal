@@ -11,7 +11,7 @@ use App\Models\Respondents\SurveyRespondent;
 class SurveyQuestion extends Model
 {
 
-    protected $fillable = ['question', 'survey_id'];
+    protected $fillable = ['question'];
 
     public static function make(array $params)
     {

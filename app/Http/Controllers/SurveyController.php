@@ -39,8 +39,10 @@ class SurveyController extends Controller
     {
         $survey = Survey::make($request->all());
         if (!$survey->save()) {
+            flash('Failed to create the survey')->error()->important();
             return back()->withErrors($survey->errors());
         }
+        flash('Survey created successfully. Add Survey questions below')->important();
         return redirect('/survey-question/create');
     }
 
@@ -81,7 +83,11 @@ class SurveyController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Survey $survey)
+    {}
+
+    public function manageQuestions(Survey $survey)
     {
-        //
+        $questions = $survey->survey_questions;
+        return view('survey.manage_questions', compact('questions', 'survey'));
     }
 }

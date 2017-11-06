@@ -15,7 +15,7 @@
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
+    <div>
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
@@ -49,7 +49,7 @@
                         @else
                             <li> <a href="/home">Dashboard</a></li>
                             <li> <a href="/survey/create">New Survey</a></li>
-                            {{-- <li> <a href="/survey-question/create">Add Questions</a></li> --}}
+                            <li> <a href="/survey-question/create">Add Questions</a></li>
                             <!-- <li> <a href="/register"> Create New Admin</a></li> -->
                             <li> <a href="#"> Pay Rewards</a></li>
                             {{-- <li> <a href="/rewards/pay"> Pay Rewards</a></li> --}}
@@ -77,8 +77,17 @@
                 </div>
             </div>
         </nav>
+    </div>
+    
+    <div class="container">
+        @include('flash::message')
+    </div>
+
+    <div id="app">
         @yield('content')
     </div>
+
     <script src="{{ mix('/js/app.js') }}"></script>
+    <script>$('#flash-overlay-modal').modal();</script>
 </body>
 </html>

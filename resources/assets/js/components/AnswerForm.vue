@@ -5,7 +5,7 @@
             <br>
             <span>Would this question be open ended or an objective type</span>
             <select v-model="answer_type" name="answer_type" id="answer_type" class="form-control">
-                <option value="open_ended">Open Ended</option>
+                <!-- <option value="open_ended">Open Ended</option> -->
                 <option value="objective_type">Objective Type</option>
             </select>
         </div>
@@ -22,7 +22,7 @@
                        placeholder="Type answers here"
                        class="form-control">
                 <i class="btn btn-default add-btn"
-                   @click="addAnswer(answer)"> Add option</i>
+                   @click="addAnswer(answer)"> Add answer option</i>
             </span>
         </div>
     </div>
@@ -33,7 +33,7 @@
         name: 'AnswerForm',
         data() {
             return {
-                answer_type: 'open_ended',
+                answer_type: 'objective_type',
                 answers: [],
                 answer: ''
             }
@@ -42,7 +42,7 @@
 
         },
         methods: {
-            addAnswer(answer){
+            addAnswer(answer, event){
                 this.answers.push(answer)
                 this.answer = ''
             }
