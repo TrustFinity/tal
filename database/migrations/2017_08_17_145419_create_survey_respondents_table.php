@@ -22,7 +22,7 @@ class CreateSurveyRespondentsTable extends Migration
             $table->string('image_url')->nullable();
             $table->string('occupation')->nullable();
             $table->integer('phone_number')->nullable();
-            $table->integer('facebook_id');
+            $table->string('facebook_id');
             $table->string('email')->nullable();
             $table->string('sub_county')->nullable();
             $table->string('district')->nullable();
