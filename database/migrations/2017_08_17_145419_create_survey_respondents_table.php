@@ -21,7 +21,7 @@ class CreateSurveyRespondentsTable extends Migration
             $table->integer('age')->nullable();
             $table->string('image_url')->nullable();
             $table->string('occupation')->nullable();
-            $table->integer('phone_number')->nullable();
+            $table->string('phone_number')->nullable();
             $table->string('facebook_id');
             $table->string('email')->nullable();
             $table->string('city')->nullable();
