@@ -15,18 +15,16 @@ class CreateSurveyRespondentsTable extends Migration
     {
         Schema::create('survey_respondents', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('firstname')->nullable();
+            $table->string('first_name')->nullable();
             $table->string('middle_name')->nullable();
-            $table->string('lastname')->nullable();
-            $table->date('dob')->nullable();
+            $table->string('last_name')->nullable();
+            $table->integer('age')->nullable();
             $table->string('image_url')->nullable();
             $table->string('occupation')->nullable();
             $table->integer('phone_number')->nullable();
             $table->string('facebook_id');
             $table->string('email')->nullable();
-            $table->string('sub_county')->nullable();
-            $table->string('district')->nullable();
-            $table->string('region')->nullable();
+            $table->string('city')->nullable();
             $table->string('country')->nullable();
             $table->timestamps();
         });

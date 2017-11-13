@@ -8,16 +8,15 @@ use App\Models\Responses\QuestionResponse;
 class SurveyRespondent extends Model
 {
 	protected $fillable = [
-		'firstname',
+		'first_name',
 		'middle_name',
-		'lastname',
-		'dob',
+		'last_name',
+		'age',
 		'occupation',
 		'password',
 		'email',
-		'sub_county',
-		'district',
-		'region',
+		'phone_number',
+		'city',
 		'country',
 		'facebook_id',
 		'image_url'
