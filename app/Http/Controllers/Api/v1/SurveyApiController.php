@@ -62,11 +62,12 @@ class SurveyApiController
 
 	public function createNewRespondent(Request $request)
 	{
-		return SurveyRespondent::create($request->all());
+		return SurveyRespondent::firstOrCreate(["facebook_id" => $request->facebook_id], $request->all());
 	}
 
 	public function updateRespondentData(Request $request)
 	{
+		// May used updateOrCreate.
 		$respondent = SurveyRespondent::where('facebook_id', $request->facebook_id)->first();
 		if (!$respondent->update($request->all())) {
 			return "Failed to update.";
