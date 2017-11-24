@@ -20,7 +20,6 @@ class ResponseSeeder extends Seeder
                 'survey_id' => $survey_question->survey->id,
                 'survey_question_id' => $survey_question->id,
                 'answer' => 'Mwaka is awesome',
-                'facebook_id' => (string)mt_rand(1000000000, 999999999999)
             ]);
     	}
         // , 'No his friends makes him awesome', 'He is not awesome'])

@@ -15,5 +15,6 @@ $factory->define(App\Models\Responses\RespondentResponse::class, function (Faker
         'survey_question_id' => $survey_question->id,
         'survey_respondent_id' => $survey_respondent_id,
         'answer' => $responses->first()->answer ?: 'Mwaka is too awesome',
+        'facebook_id' => $faker->randomElement(['21312313131','2233412425244', '39704374914141', '783979230424'])
     ];
 });
