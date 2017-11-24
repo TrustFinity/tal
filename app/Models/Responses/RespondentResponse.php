@@ -11,7 +11,6 @@ class RespondentResponse extends Model
 {
 
     protected $fillable = [
-        'survey_respondent_id',
         'facebook_id',
         'answer',
     ];
