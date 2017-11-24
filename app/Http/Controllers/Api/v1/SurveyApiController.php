@@ -48,9 +48,11 @@ class SurveyApiController
 		$respondent_response            = RespondentResponse::make($request->all());
 		$respondent_response->survey_id = $survey->id;
 		$respondent_response->survey_question_id   = $survey_question->id;
-		$respondent_response->survey_respondent_id = SurveyRespondent::where('facebook_id', $respondent_response->facebook_id)
+
+		$respondents_id = SurveyRespondent::where('facebook_id', $respondent_response->facebook_id)
 																	 ->first()
 																	 ->id;
+		$respondent_response->survey_respondent_id = $respondents_id;
 
 		if (!$respondent_response->save()) {
 			return 'Failed to record response. Try again';
