@@ -13,15 +13,34 @@ class ResponseSeeder extends Seeder
      */
     public function run()
     {
-        // $faker = Faker\Factory::create();
-    	// QuestionResponse::truncate();
+        $faker = Faker\Factory::create();
     	foreach (SurveyQuestion::all() as $survey_question) {
             QuestionResponse::create([
                 'survey_id' => $survey_question->survey->id,
                 'survey_question_id' => $survey_question->id,
-                'answer' => 'Mwaka is awesome',
+                'answer' => $faker->sentence,
+
+            ]);
+            QuestionResponse::create([
+                'survey_id' => $survey_question->survey->id,
+                'survey_question_id' => $survey_question->id,
+                'answer' => $faker->sentence,
+            ]);
+            QuestionResponse::create([
+                'survey_id' => $survey_question->survey->id,
+                'survey_question_id' => $survey_question->id,
+                'answer' => $faker->sentence,
+            ]);
+            QuestionResponse::create([
+                'survey_id' => $survey_question->survey->id,
+                'survey_question_id' => $survey_question->id,
+                'answer' => $faker->sentence,
+            ]);
+            QuestionResponse::create([
+                'survey_id' => $survey_question->survey->id,
+                'survey_question_id' => $survey_question->id,
+                'answer' => $faker->sentence,
             ]);
     	}
-        // , 'No his friends makes him awesome', 'He is not awesome'])
     }
 }
