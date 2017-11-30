@@ -37,9 +37,10 @@
         <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><span></span><span></span><span></span></button>
         <div id="navbarSupportedContent" class="collapse navbar-collapse">
           <ul class="navbar-nav ml-auto align-items-start align-items-lg-center">
-            <li class="nav-item"><a href="#about-us" class="nav-link link-scroll">About Us</a></li>
+            <li class="nav-item"><a href="#browser" class="nav-link link-scroll">How it works</a></li>
             <li class="nav-item"><a href="#features" class="nav-link link-scroll">Learn more</a></li>
-            <li class="nav-item"><a href="#extra-features" class="nav-link link-scroll">Features</a></li>
+            <li class="nav-item"><a href="#extra-features" class="nav-link link-scroll">More features</a></li>
+            <li class="nav-item"><a href="#about-us" class="nav-link link-scroll">About Us</a></li>
           </ul>
           <div class="navbar-text">
             <!-- Button trigger modal--><a href="link-to-google-play-store-app" class="btn btn-primary navbar-btn btn-shadow btn-gradient">Download The App Now</a>
@@ -102,18 +103,24 @@
             <h2 class="h3 mb-5">How it works</h2>
             <div class="browser-mockup">
               <div id="nav-tabContent" class="tab-content">
-                <div id="nav-first" role="tabpanel" aria-labelledby="nav-first-tab" class="tab-pane fade show active"><img src="img/preview-3.png" alt="..." class="img-fluid"></div>
-                <div id="nav-second" role="tabpanel" aria-labelledby="nav-second-tab" class="tab-pane fade"><img src="img/preview-2.png" alt="..." class="img-fluid"></div>
-                <div id="nav-third" role="tabpanel" aria-labelledby="nav-third-tab" class="tab-pane fade"><img src="img/preview-1.png" alt="..." class="img-fluid"></div>
+                <div id="nav-first" role="tabpanel" aria-labelledby="nav-first-tab" class="tab-pane fade show active">
+                  <img src="img/login_nexus5x-portrait.png" alt="..." class="img-fluid" height="600" width="340">
+                </div>
+                <div id="nav-second" role="tabpanel" aria-labelledby="nav-second-tab" class="tab-pane fade">
+                  <img src="img/profile_view.png" alt="..." class="img-fluid" height="950" width="600">
+                </div>
+                <div id="nav-third" role="tabpanel" aria-labelledby="nav-third-tab" class="tab-pane fade">
+                  <img src="img/survey_view.png" alt="..." class="img-fluid" height="950" width="600">
+                </div>
               </div>
             </div>
           </div>
         </div>
         <div id="myTab" role="tablist" class="nav nav-tabs">
           <div class="row">
-            <div class="col-md-4"><a id="nav-first-tab" data-toggle="tab" href="#nav-first" role="tab" aria-controls="nav-first" aria-expanded="true" class="nav-item nav-link active"> <span class="number">1</span>Choose any website to turn into an interactive pinboard for feedback</a></div>
-            <div class="col-md-4"><a id="nav-second-tab" data-toggle="tab" href="#nav-second" role="tab" aria-controls="nav-second" class="nav-item nav-link"> <span class="number">2</span>Choose any website to turn into an interactive pinboard for feedback</a></div>
-            <div class="col-md-4"><a id="nav-third-tab" data-toggle="tab" href="#nav-third" role="tab" aria-controls="nav-third" class="nav-item nav-link"> <span class="number">3</span>Choose any website to turn into an interactive pinboard for feedback</a></div>
+            <div class="col-md-4"><a id="nav-first-tab" data-toggle="tab" href="#nav-first" role="tab" aria-controls="nav-first" aria-expanded="true" class="nav-item nav-link active"> <span class="number">1</span>Download the app from google play, signup with facebook.</a></div>
+            <div class="col-md-4"><a id="nav-second-tab" data-toggle="tab" href="#nav-second" role="tab" aria-controls="nav-second" class="nav-item nav-link"> <span class="number">2</span>Complete your profile to get more contents tailored for you.</a></div>
+            <div class="col-md-4"><a id="nav-third-tab" data-toggle="tab" href="#nav-third" role="tab" aria-controls="nav-third" class="nav-item nav-link"> <span class="number">3</span>Earn for every survey you take. Its that simple.</a></div>
           </div>
         </div>
       </div>
@@ -131,13 +138,14 @@
     <section id="features" class="features">
       <div class="container">
         <div class="row d-flex text-center">
-          <h2 class="h3 mb-5 text-center">App main features</h2>
+          <h2 class="h3 mb-5 text-center">Plartform features</h2>
         </div>
         <div class="row d-flex align-items-center">
           <div class="text col-lg-6 order-2 order-lg-1">
             <div class="icon"><img src="img/medal.svg" alt="..." class="img-fluid"></div>
-            <h4>Your peace of mind is our business</h4>
-            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p><a href="#" class="btn btn-primary btn-shadow btn-gradient">View More</a>
+            <h4>Dashboard and Statistics</h4>
+            <p>For every survey we conduct for you, we have robust dashboard and analytics which lets you look right through the datasets collected.</p>
+            {{-- <a href="#" class="btn btn-primary btn-shadow btn-gradient">View More</a> --}}
           </div>
           <div class="image col-lg-6 order-1 order-lg-2"><img src="img/feature-1.png" alt="..." class="img-fluid"></div>
         </div>
@@ -145,15 +153,17 @@
           <div class="image col-lg-6"><img src="img/feature-2.png" alt="..." class="img-fluid"></div>
           <div class="text col-lg-6">
             <div class="icon"><img src="img/hourglass.svg" alt="..." class="img-fluid"></div>
-            <h4>Your peace of mind is our business</h4>
-            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p><a href="#" class="btn btn-primary btn-shadow btn-gradient">View More</a>
+            <h4>Multiple questions per survey</h4>
+            <p>Get a full coverage of all of your business queries in just one survey run. We have you covered.</p>
+            {{-- <a href="#" class="btn btn-primary btn-shadow btn-gradient">View More</a> --}}
           </div>
         </div>
         <div class="row d-flex align-items-center">
           <div class="text col-lg-6 order-2 order-lg-1">
             <div class="icon"><img src="img/cup.svg" alt="..." class="img-fluid"></div>
-            <h4>Your peace of mind is our business</h4>
-            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p><a href="#" class="btn btn-primary btn-shadow btn-gradient">View More</a>
+            <h4>Multiple choice answers</h4>
+            <p>Yes, a sandboxed environment lets prove what you have already been suspecting about your business. Call us now.</p>
+            {{-- <a href="#" class="btn btn-primary btn-shadow btn-gradient">View More</a> --}}
           </div>
           <div class="image col-lg-6 order-1 order-lg-2"><img src="img/feature-3.png" alt="..." class="img-fluid"></div>
         </div>
@@ -164,39 +174,39 @@
         <header>
           <h2>More great features</h2>
           <div class="row">
-            <p class="lead col-lg-8 mx-auto">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</p>
+            <p class="lead col-lg-8 mx-auto">There are many more greate feature that TAL-Surveys offers.</p>
           </div>
         </header>
         <div class="grid row">
           <div class="item col-lg-4 col-md-6">
             <div class="icon"> <i class="icon-diploma"></i></div>
-            <h3 class="h5">Lorem Ipsum Dolor</h3>
-            <p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
+            <h3 class="h5">Statistic</h3>
+            <p>Every survey run will be disected for every insight it can offer..</p>
           </div>
           <div class="item col-lg-4 col-md-6">
             <div class="icon"> <i class="icon-folder-1"></i></div>
-            <h3 class="h5">Lorem Ipsum Dolor</h3>
-            <p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
+            <h3 class="h5">Multiple choice reponses</h3>
+            <p>For a more controlled tightly coupled surveys, we have that covered for you.</p>
           </div>
           <div class="item col-lg-4 col-md-6">
             <div class="icon"> <i class="icon-gears"></i></div>
-            <h3 class="h5">Lorem Ipsum Dolor</h3>
-            <p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
+            <h3 class="h5">Respondents</h3>
+            <p>Get insights into your business with our loyal survey takers, always happy to help.</p>
           </div>
           <div class="item col-lg-4 col-md-6">
             <div class="icon"> <i class="icon-management"></i></div>
-            <h3 class="h5">Lorem Ipsum Dolor</h3>
-            <p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
+            <h3 class="h5">Rewards</h3>
+            <p>Greate rewards makes a happy respondent. We reward every repondent for every complete survey they take.</p>
           </div>
           <div class="item col-lg-4 col-md-6">
             <div class="icon"> <i class="icon-pie-chart"></i></div>
-            <h3 class="h5">Lorem Ipsum Dolor</h3>
-            <p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
+            <h3 class="h5">Multiple questions</h3>
+            <p>Multiple questions for every survey created lets you cover every angle of your business assesment.</p>
           </div>
           <div class="item col-lg-4 col-md-6">
             <div class="icon"> <i class="icon-quality"></i></div>
-            <h3 class="h5">Lorem Ipsum Dolor</h3>
-            <p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
+            <h3 class="h5">Pricing</h3>
+            <p>We have competative pricing that suits every business survey needs. Reach out to us and we'll talk.</p>
           </div>
         </div>
       </div>
@@ -267,7 +277,7 @@
     <footer class="main-footer">
       <div class="container">
         <div class="row">
-          <div class="col-lg-3 col-md-6"><a href="#" class="brand">TAL-SURVEYS</a>
+          <div class="col-lg-3 col-md-6"><a class="brand">TAL-SURVEYS</a>
             <ul class="contact-info list-unstyled">
               <li><a href="tel:123456789">Plot 3B Kyambogo Drive Ntinda</a></li>
               <li><a href="mailto:admin@traceafricalogistics.com">admin@traceafricalogistics.com</a></li>
