@@ -32,7 +32,8 @@ class HomeController extends Controller
         $respondent_responses = RespondentResponse::all()->count();
         $selected_survey = $surveys->first();
 
-        $chart = Charts::database(SurveyRespondent::all(), 'bar', 'highcharts')
+        $chart = Charts::database(SurveyRespondent::all(), 'bar', 'morris')
+                                ->title("Respondents By Gender")
                                 ->elementLabel("Respondents")
                                 ->dimensions(1000, 500)
                                 ->responsive(true)

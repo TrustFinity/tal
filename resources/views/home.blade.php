@@ -68,3 +68,6 @@
     </div>
 </div>
 @endsection
+@section('scripts')
+    {!! $chart->script() !!}
+@endsection
