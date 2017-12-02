@@ -31,11 +31,13 @@ class HomeController extends Controller
         $respondents = SurveyRespondent::all()->count();
         $respondent_responses = RespondentResponse::all()->count();
         $selected_survey = $surveys->first();
+
         $chart = Charts::database(SurveyRespondent::all(), 'bar', 'highcharts')
                                 ->elementLabel("Respondents")
                                 ->dimensions(1000, 500)
                                 ->responsive(true)
                                 ->groupBy('gender');
+
         return view('home', compact('surveys', 'respondents', 'respondent_responses', 'selected_survey', 'chart'));
     }
 }
