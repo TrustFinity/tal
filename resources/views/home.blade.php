@@ -14,7 +14,7 @@
         </div>
         <div class="col-sm-3">
             <div class="panel panel-info">
-                <div class="panel-heading"> 
+                <div class="panel-heading">
 
                     <h1 class="stats"> {{ $respondents }}</h1>
                     <p>Respondents. <a href="/respondents"> View Respondents</a></p>
@@ -46,7 +46,7 @@
             <form action="" method="">
                 <select class="form-control pull-left" name="survey" id="survey">
                     @foreach($surveys as $survey)
-                        <option value="{{ $survey->id }}"> {{ $survey->name }}</option>
+                        <option value="{{ $survey->id ?? 0 }}"> {{ $survey->name ?? '--No surveys' }}</option>
                     @endforeach
                 </select>
                 <p></p>
