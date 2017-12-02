@@ -91,5 +91,6 @@
     <script src="{{ mix('/js/app.js') }}"></script>
     <script>$('#flash-overlay-modal').modal();</script>
     {!! Charts::scripts() !!}
+    {!! $chart->script() !!}
 </body>
 </html>

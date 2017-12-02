@@ -57,11 +57,11 @@
             <h4>{{ $selected_survey->name }}</h4>
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <p>Legends here</p>
+                    <p>Sample graph for analytics</p>
                 </div>
 
                 <div class="panel-body">
-                    {!! $respondents_chart->html() !!}
+                    {!! $chart->html() !!}
                 </div>
             </div>
         </div>
