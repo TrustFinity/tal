@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>TAL - Answer Questions and Earn Money</title>
+    <title>MyTAL</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -33,7 +33,7 @@
   <body>
     <!-- navbar-->
     <header class="header">
-      <nav class="navbar navbar-expand-lg fixed-top"><a href="{{url('/')}}" class="navbar-brand">TAL-SURVEYS</a>
+      <nav class="navbar navbar-expand-lg fixed-top"><a href="{{url('/')}}" class="navbar-brand">MyTAL</a>
         <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><span></span><span></span><span></span></button>
         <div id="navbarSupportedContent" class="collapse navbar-collapse">
           <ul class="navbar-nav ml-auto align-items-start align-items-lg-center">
@@ -83,7 +83,7 @@
         <div class="row d-flex">
           <div class="col-lg-6 text order-2 order-lg-1 tag-line">
             <h1>Unlock the value of opinions</h1>
-            <p class="hero-text">TAL-SURVEYS helps brands and businesses understand their customers better and engage with them through advertising research and content.</p>
+            <p class="hero-text">MyTAL helps brands and businesses understand their customers better and engage with them through advertising research and content.</p>
             <div class="CTA">
                 <a href="#features" class="btn btn-primary btn-shadow btn-gradient link-scroll">Learn More</a>
                 <a href="link-to-google-play-store-app" class="btn btn-outline-primary">Download The App Now</a>
@@ -174,7 +174,7 @@
         <header>
           <h2>More great features</h2>
           <div class="row">
-            <p class="lead col-lg-8 mx-auto">There are many more greate feature that TAL-Surveys offers.</p>
+            <p class="lead col-lg-8 mx-auto">There are many more greate feature that MyTAL offers.</p>
           </div>
         </header>
         <div class="grid row">
@@ -277,7 +277,7 @@
     <footer class="main-footer">
       <div class="container">
         <div class="row">
-          <div class="col-lg-3 col-md-6"><a class="brand">TAL-SURVEYS</a>
+          <div class="col-lg-3 col-md-6"><a class="brand">Trace Africa Logistics</a>
             <ul class="contact-info list-unstyled">
               <li><a href="tel:123456789">Plot 3B Kyambogo Drive Ntinda</a></li>
               <li><a href="mailto:admin@traceafricalogistics.com">admin@traceafricalogistics.com</a></li>
