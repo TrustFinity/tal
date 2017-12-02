@@ -61,7 +61,7 @@
                 </div>
 
                 <div class="panel-body">
-                    You are logged in!
+                    {!! $respondents_chart->html() !!}
                 </div>
             </div>
         </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Charts;
 use Illuminate\Http\Request;
 use App\Models\Surveys\Survey;
 use App\Models\Respondents\SurveyRespondent;
@@ -30,6 +31,11 @@ class HomeController extends Controller
         $respondents = SurveyRespondent::all()->count();
         $respondent_responses = RespondentResponse::all()->count();
         $selected_survey = $surveys->first();
-        return view('home', compact('surveys', 'respondents', 'respondent_responses', 'selected_survey'));
+        $respondents_chart = Charts::database(User::all(), 'bar', 'highcharts')
+                                ->elementLabel("Sample graph for analytics")
+                                ->dimensions(1000, 500)
+                                ->responsive(false)
+                                ->groupBy('gender');
+        return view('home', compact('surveys', 'respondents', 'respondent_responses', 'selected_survey', 'respondents_chart'));
     }
 }

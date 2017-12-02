@@ -26,6 +26,7 @@ class CreateSurveyRespondentsTable extends Migration
             $table->string('email')->nullable();
             $table->string('city')->nullable();
             $table->string('country')->nullable();
+            $table->string('gender')->nullable();
             $table->timestamps();
         });
     }

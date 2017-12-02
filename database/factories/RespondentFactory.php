@@ -12,6 +12,7 @@ $factory->define(App\Models\Respondents\SurveyRespondent::class, function (Faker
 		'email' => $faker->email,
 		'city' => $faker->randomElement(['kampala', 'gulu', 'kitgum', 'kumi']),
 		'country' => $faker->randomElement(['uganda', 'kenya', 'tanzania', 'rwanda']),
+		'gender' => $faker->randomElement(['Male', 'Female', 'Other']),
 		'facebook_id' => $faker->randomElement(['21312313131','2233412425244', '39704374914141', '783979230424'])
 	];
 });

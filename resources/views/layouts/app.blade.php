@@ -13,6 +13,7 @@
     <!-- Styles -->
     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
+    {!! Charts::styles() !!}
 </head>
 <body>
     <div>
@@ -78,7 +79,7 @@
             </div>
         </nav>
     </div>
-    
+
     <div class="container">
         @include('flash::message')
     </div>
@@ -89,5 +90,6 @@
 
     <script src="{{ mix('/js/app.js') }}"></script>
     <script>$('#flash-overlay-modal').modal();</script>
+    {!! Charts::scripts() !!}
 </body>
 </html>
