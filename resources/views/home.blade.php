@@ -41,28 +41,14 @@
     </div>
 
     <div class="row">
-        <div class="col-sm-3">
-            <h4> Graph Statistics</h4>
-            <form action="" method="">
-                <select class="form-control pull-left" name="survey" id="survey">
-                    @foreach($surveys as $survey)
-                        <option value="{{ $survey->id ?? 0 }}"> {{ $survey->name ?? '--No surveys' }}</option>
-                    @endforeach
-                </select>
-                <p></p>
-                <button type="submit" class="btn btn-success" style="margin-top: 10px;"> Show Statistics</button>
-            </form>
-        </div>
-        <div class="col-sm-9">
-            <h4>{{ $selected_survey->name }}</h4>
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <p>Sample graph for analytics</p>
-                </div>
+        <h4>{{ $selected_survey->name }}</h4>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <p>Sample graph for analytics</p>
+            </div>
 
-                <div class="panel-body">
-                    {!! $chart->html() !!}
-                </div>
+            <div class="panel-body">
+                {!! $chart->html() !!}
             </div>
         </div>
     </div>

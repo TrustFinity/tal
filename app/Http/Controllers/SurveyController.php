@@ -6,6 +6,7 @@ use Charts;
 use Illuminate\Http\Request;
 use App\Models\Surveys\Survey;
 use App\Models\Responses\RespondentResponse;
+use Illuminate\Database\Eloquent\Collection;
 
 class SurveyController extends Controller
 {
@@ -51,21 +52,42 @@ class SurveyController extends Controller
     public function show(Survey $survey)
     {
         $data = $survey->survey_questions()
-                       ->with('respondents_response')
                        ->whereHas('respondents_response', function ($query){
                             $query->groupBy('answer');
                        })
+                       ->with('respondents_response')
                        ->get();
+        $questions = new Collection();
+        foreach ($data as $question) {
+            $questions->push($question);
+        }
         $responses_count = RespondentResponse::where('survey_id', $survey->id)->count();
-        // $respondents_count = RespondentResponse::where('survey_id', $survey->id)
-        //                                     ->selectUnique('survey_respondent_id')
-        //                                     ->count();
-        $chart = Charts::create($data, 'bar', 'morris')
-                                ->title("Respondent Responses")
+        $respondents_count = RespondentResponse::where('survey_id', $survey->id)
+                                ->distinct()
+                                ->count();
+        $chart = Charts::multi('bar', 'chartjs')
+                                ->title("Respondent Information")
+                                // ->elementLabel("Responses")
+                                ->dimensions(1000, 500)
+                                ->labels(['By Gender', 'By Question', 'By Age'])
+                                ->dataset('Test 1', [1,2,3])
+                                ->dataset('Test 2', [0,6,0])
+                                ->dataset('Test 3', [3,4,1])
+                                ->responsive(true);
+
+        $stats = Charts::database($questions, 'line', 'chartjs')
+                                ->title("Respondent Response")
                                 ->elementLabel("Responses")
                                 ->dimensions(1000, 500)
-                                ->responsive(true);
-        return view('survey.show', compact('survey', 'chart', 'responses_count'));
+                                ->responsive(true)
+                                ->groupBy('');
+
+        return view('survey.show', compact('survey', 
+            'chart', 
+            'responses_count', 
+            'stats',
+            'respondents_count'
+        ));
     }
 
     /**

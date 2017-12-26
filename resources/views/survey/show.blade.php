@@ -14,11 +14,17 @@
 			<div class="alert alert-info">
 				<span class="text-success">{{ $survey->survey_questions->count() }}</span> questions.
 				<span class="text-success">{{ $responses_count }}</span> reponses.
-				300 people took the survey.
+				{{ $respondents_count }} people took the survey.
 			</div>
-			{{-- {!! $chart->html() !!} --}}
+			{!! $chart->html() !!}
+			<hr class="row">
+			{!! $stats->html() !!}
     	</div>
     </div>
 
 </div>
+@endsection
+@section('scripts')
+    {!! $stats->script() !!}
+    {!! $chart->script() !!}
 @endsection
