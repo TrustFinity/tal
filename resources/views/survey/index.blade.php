@@ -2,8 +2,11 @@
 
 @section('content')
 <div class="container">
-	<h4 class="pull-left">All Surveys</h4>
-	<a href="/survey/create" class="btn btn-success pull-right">Create New</a>
+	<h3 class="pull-left">Active Surveys</h3>
+	<div class="btn-group pull-right">
+		<a href="/survey/create" class="btn btn-default">Create New</a>
+		<a href="/survey/create" class="btn btn-default">View Closed</a>
+	</div>
 </div>
 <div class="container">
 	{{ $surveys->links() }}			
@@ -12,9 +15,13 @@
     <div class="panel panel-default">
     	<div class="panel-body">
     		@foreach($surveys as $survey)
-				<a href="/survey/{{ $survey->id }}/edit"> {{ $survey->name }} </a>
+				<h3>
+					<a href="/survey/{{ $survey->id }}"> {{ $survey->name }} </a>
+				</h3>
 				<p>{{ $survey->description }}</p>
+				<span class="text-success">{{ $survey->survey_questions->count() }}</span> question. 
 				<a href="/survey/{{ $survey->id }}/edit">Click to edit</a>
+				<a href="/survey/{{ $survey->id }}/close" class="btn btn-danger btn-xs pull-right">Close Survey</a>
 				<hr class="row">
     		@endforeach
     	</div>

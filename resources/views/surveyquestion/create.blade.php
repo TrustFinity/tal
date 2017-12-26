@@ -14,7 +14,7 @@
 					<div class="form-group">
 						<span><label for="survey_id">Select Survey</label></span> (<span class="text-danger">Required</span>)
 						<br>
-						<span>Please select the survey this question belongs too</span>
+						<span>Please select the survey this question will belong to</span>
 						<select name="id" id="survey_id" class="form-control">
 							@foreach($surveys as $survey)
 								<option value="{{ $survey->id }}">{{ $survey->name }}</option>

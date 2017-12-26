@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Charts;
 use Illuminate\Http\Request;
 use App\Models\Surveys\Survey;
+use App\Models\Responses\RespondentResponse;
 
 class SurveyController extends Controller
 {
@@ -42,13 +44,28 @@ class SurveyController extends Controller
             flash('Failed to create the survey')->error()->important();
             return back()->withErrors($survey->errors());
         }
-        flash('Survey created successfully. Add Survey questions below')->important();
+        flash('Survey created successfully. Add Survey questions below.')->important();
         return redirect('/survey-question/create');
     }
 
     public function show(Survey $survey)
     {
-        return view('survey.edit', compact('survey'));
+        $data = $survey->survey_questions()
+                       ->with('respondents_response')
+                       ->whereHas('respondents_response', function ($query){
+                            $query->groupBy('answer');
+                       })
+                       ->get();
+        $responses_count = RespondentResponse::where('survey_id', $survey->id)->count();
+        // $respondents_count = RespondentResponse::where('survey_id', $survey->id)
+        //                                     ->selectUnique('survey_respondent_id')
+        //                                     ->count();
+        $chart = Charts::create($data, 'bar', 'morris')
+                                ->title("Respondent Responses")
+                                ->elementLabel("Responses")
+                                ->dimensions(1000, 500)
+                                ->responsive(true);
+        return view('survey.show', compact('survey', 'chart', 'responses_count'));
     }
 
     /**

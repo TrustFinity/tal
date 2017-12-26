@@ -36,7 +36,12 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        // Bad Idea since people can just visit urls
+        // without being authenticated.
+        // TODO - MA find a better way to habdle this 
+        // mess.
+        
+        // $this->middleware('guest');
     }
 
     /**

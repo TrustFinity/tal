@@ -45,14 +45,13 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                            <li><a href="/">Home</a></li>
+                            {{-- <li><a href="{{ route('register') }}">Register</a></li> --}}
                         @else
                             <li> <a href="/home">Dashboard</a></li>
-                            <li> <a href="/survey/create">New Survey</a></li>
-                            <li> <a href="/survey-question/create">Add Questions</a></li>
-                            <!-- <li> <a href="/register"> Create New Admin</a></li> -->
-                            <li> <a href="#"> Pay Rewards</a></li>
+                            <li> <a href="/survey">Surveys</a></li>
+                            <li> <a href="/survey-question/create">Questions</a></li>
+                            <li> <a href="#">Rewards</a></li>
                             {{-- <li> <a href="/rewards/pay"> Pay Rewards</a></li> --}}
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -71,6 +70,7 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
+                                    <li> <a href="/register">Create new Admin</a></li>
                                 </ul>
                             </li>
                         @endif
