@@ -17,7 +17,7 @@ class SurveyController extends Controller
      */
     public function index()
     {
-        $surveys = Survey::paginate(10);
+        $surveys = Survey::where('is_open', 1)->paginate(10);
         return view('survey.index', compact('surveys'));
     }
 
@@ -128,5 +128,33 @@ class SurveyController extends Controller
     {
         $questions = $survey->survey_questions;
         return view('survey.manage_questions', compact('questions', 'survey'));
+    }
+
+    public function open(Survey $survey)
+    {
+        $survey->is_open = 1;
+        if (!$survey->save()) {
+            flash('Failed to re-open the survey. Try again later.');
+            return back();
+        }
+        flash('Survey Re-opened successfully.');
+        return back();
+    }
+
+    public function close(Survey $survey)
+    {
+        $survey->is_open = 0;
+        if (!$survey->save()) {
+            flash('Failed to close the survey. Try again later.');
+            return back();
+        }
+        flash('Survey closed successfully.');
+        return back();
+    }
+
+    public function closed(Request $request)
+    {
+        $surveys = Survey::where('is_open', 0)->paginate(10);
+        return view('survey.index_closed', compact('surveys'));
     }
 }

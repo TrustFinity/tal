@@ -18,7 +18,9 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('survey', 'SurveyController');
+Route::get('get/closed', 'SurveyController@closed');
+Route::get('survey/{survey}/open', 'SurveyController@open');
+Route::get('survey/{survey}/close', 'SurveyController@close');
 Route::resource('survey-question', 'SurveyQuestionController');
 Route::resource('respondent-response', 'RespondentResponseController');
-
 Route::get('survey/{survey}/manage-questions', 'SurveyController@manageQuestions');
