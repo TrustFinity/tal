@@ -41,12 +41,7 @@
     </div>
 
     <div class="row">
-        <h4>{{ $selected_survey->name }}</h4>
         <div class="panel panel-default">
-            <div class="panel-heading">
-                <p>Sample graph for analytics</p>
-            </div>
-
             <div class="panel-body">
                 {!! $chart->html() !!}
             </div>

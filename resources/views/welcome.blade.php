@@ -43,7 +43,8 @@
             <li class="nav-item"><a href="#about-us" class="nav-link link-scroll">About Us</a></li>
           </ul>
           <div class="navbar-text">
-            <!-- Button trigger modal--><a href="link-to-google-play-store-app" class="btn btn-primary navbar-btn btn-shadow btn-gradient">Download The App Now</a>
+            <!-- Button trigger modal-->
+            <a href="/app/apk-inside-here.apk" class="btn btn-primary navbar-btn btn-shadow btn-gradient">Download The App Now</a>
           </div>
         </div>
       </nav>
@@ -86,7 +87,7 @@
             <p class="hero-text">MyTAL helps brands and businesses understand their customers better and engage with them through advertising research and content.</p>
             <div class="CTA">
                 <a href="#features" class="btn btn-primary btn-shadow btn-gradient link-scroll">Learn More</a>
-                <a href="link-to-google-play-store-app" class="btn btn-outline-primary">Download The App Now</a>
+                <a href="/app/apk-inside-here.apk" class="btn btn-outline-primary">Download The App Now</a>
             </div>
           </div>
           <div class="col-lg-6 order-1 order-lg-2">
@@ -147,10 +148,10 @@
             <p>For every survey we conduct for you, we have robust dashboard and analytics which lets you look right through the datasets collected.</p>
             {{-- <a href="#" class="btn btn-primary btn-shadow btn-gradient">View More</a> --}}
           </div>
-          <div class="image col-lg-6 order-1 order-lg-2"><img src="img/feature-1.png" alt="..." class="img-fluid"></div>
+          <div class="image col-lg-6 order-1 order-lg-2"><img src="img/my-tal-dash.png" alt="..." class="img-fluid"></div>
         </div>
         <div class="row d-flex align-items-center">
-          <div class="image col-lg-6"><img src="img/feature-2.png" alt="..." class="img-fluid"></div>
+          <div class="image col-lg-6"><img src="img/multi-question.png" alt="..." class="img-fluid"></div>
           <div class="text col-lg-6">
             <div class="icon"><img src="img/hourglass.svg" alt="..." class="img-fluid"></div>
             <h4>Multiple questions per survey</h4>
@@ -165,7 +166,7 @@
             <p>Yes, a sandboxed environment lets prove what you have already been suspecting about your business. Call us now.</p>
             {{-- <a href="#" class="btn btn-primary btn-shadow btn-gradient">View More</a> --}}
           </div>
-          <div class="image col-lg-6 order-1 order-lg-2"><img src="img/feature-3.png" alt="..." class="img-fluid"></div>
+          <div class="image col-lg-6 order-1 order-lg-2"><img src="img/multi-answers.png" alt="..." class="img-fluid"></div>
         </div>
       </div>
     </section>
@@ -296,7 +297,7 @@
           <div class="col-lg-3 col-md-6">
             <h5>More Links</h5>
             <ul class="links list-unstyled">
-              <li><a href="{{ url('/login') }}">Admin Login</a></li>
+              <li><a href="{{ url('/login') }}">Platform access</a></li>
               <li><a href="#about-us">About Us</a></li>
             </ul>
           </div>
