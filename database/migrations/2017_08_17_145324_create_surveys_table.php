@@ -18,7 +18,7 @@ class CreateSurveysTable extends Migration
             $table->integer('user_id')->unsigned()->index();
             $table->string('name');
             $table->text('description');
-            $table->string('restrictions');
+            $table->string('restrictions')->nullable();
             $table->boolean('is_open')->default(true);
             $table->timestamps();
 

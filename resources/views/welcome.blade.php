@@ -163,7 +163,7 @@
           <div class="text col-lg-6 order-2 order-lg-1">
             <div class="icon"><img src="img/cup.svg" alt="..." class="img-fluid"></div>
             <h4>Multiple choice answers</h4>
-            <p>Yes, a sandboxed environment lets prove what you have already been suspecting about your business. Call us now.</p>
+            <p>Yes, a sandboxed environment lets you prove what you have already been suspecting about your business. Call us now.</p>
             {{-- <a href="#" class="btn btn-primary btn-shadow btn-gradient">View More</a> --}}
           </div>
           <div class="image col-lg-6 order-1 order-lg-2"><img src="img/multi-answers.png" alt="..." class="img-fluid"></div>

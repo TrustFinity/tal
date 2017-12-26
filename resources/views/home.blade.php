@@ -43,12 +43,19 @@
     <div class="row">
         <div class="panel panel-default">
             <div class="panel-body">
-                {!! $chart->html() !!}
+                @if(!isset($chart))
+                    <h5>More data is needed to start rendering graphs here.</h5>
+                @endif
+                @isset ($chart)
+                    {!! $chart->html() !!}                    
+                @endisset
             </div>
         </div>
     </div>
 </div>
 @endsection
 @section('scripts')
-    {!! $chart->script() !!}
+    @isset($chart)
+        {!! $chart->script() !!}
+    @endisset
 @endsection
