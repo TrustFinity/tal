@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Charts;
 use Illuminate\Http\Request;
 use App\Models\Surveys\Survey;
+use App\Models\Questions\SurveyQuestion;
 use App\Models\Responses\RespondentResponse;
 use Illuminate\Database\Eloquent\Collection;
 
@@ -17,7 +18,9 @@ class SurveyController extends Controller
      */
     public function index()
     {
-        $surveys = Survey::where('is_open', 1)->paginate(10);
+        $surveys = Survey::where('is_open', 1)
+                         ->orderBy('id', 'desc')
+                         ->paginate(10);
         return view('survey.index', compact('surveys'));
     }
 
@@ -65,28 +68,18 @@ class SurveyController extends Controller
         $respondents_count = RespondentResponse::where('survey_id', $survey->id)
                                 ->distinct()
                                 ->count();
-        $chart = Charts::multi('bar', 'chartjs')
-                                ->title("Respondent Information")
-                                // ->elementLabel("Responses")
-                                ->dimensions(1000, 500)
-                                ->labels(['By Gender', 'By Question', 'By Age'])
-                                ->dataset('Test 1', [1,2,3])
-                                ->dataset('Test 2', [0,6,0])
-                                ->dataset('Test 3', [3,4,1])
-                                ->responsive(true);
 
-        $stats = Charts::database($questions, 'line', 'chartjs')
-                                ->title("Respondent Response")
-                                ->elementLabel("Responses")
-                                ->dimensions(1000, 500)
-                                ->responsive(true)
-                                ->groupBy('');
+        $respondents_response = RespondentResponse::where('survey_id', $survey->id)
+                                ->selectRaw('count(*) AS cnt, answer')
+                                ->groupBy('answer')
+                                ->orderBy('cnt', 'DESC')
+                                ->get();
 
-        return view('survey.show', compact('survey', 
-            'chart', 
+        return view('survey.show', compact(
+            'survey', 
             'responses_count', 
-            'stats',
-            'respondents_count'
+            'respondents_count',
+            'respondents_response'
         ));
     }
 

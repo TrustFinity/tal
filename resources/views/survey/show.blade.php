@@ -14,17 +14,18 @@
 			<div class="alert alert-info">
 				<span class="text-success">{{ $survey->survey_questions->count() }}</span> questions.
 				<span class="text-success">{{ $responses_count }}</span> reponses.
-				{{ $respondents_count }} people took the survey.
+				{{ $respondents_count }} took the survey.
 			</div>
-			{!! $chart->html() !!}
-			<hr class="row">
-			{!! $stats->html() !!}
+
+			@foreach($survey->survey_questions as $question)
+				<h4>Question</h4>
+				<p>{{ $question->question }}</p>
+				@foreach($respondents_response as $response)
+					<p>{{ $response->answer }}</p>
+				@endforeach
+			@endforeach
     	</div>
     </div>
 
 </div>
-@endsection
-@section('scripts')
-    {!! $stats->script() !!}
-    {!! $chart->script() !!}
 @endsection
