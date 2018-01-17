@@ -54,16 +54,6 @@ class SurveyController extends Controller
 
     public function show(Survey $survey)
     {
-        $data = $survey->survey_questions()
-                       ->whereHas('respondents_response', function ($query){
-                            $query->groupBy('answer');
-                       })
-                       ->with('respondents_response')
-                       ->get();
-        $questions = new Collection();
-        foreach ($data as $question) {
-            $questions->push($question);
-        }
         $responses_count = RespondentResponse::where('survey_id', $survey->id)->count();
         $respondents_count = RespondentResponse::where('survey_id', $survey->id)
                                 ->distinct()
