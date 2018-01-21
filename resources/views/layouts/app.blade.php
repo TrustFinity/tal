@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title> {{-- @yield('title') |  --}}{{ config('app.name', 'TAL') }}</title>
+    <title> {{-- @yield('title') |  --}}{{ config('app.name', 'MyTAL') }}</title>
 
     <!-- Styles -->
     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
@@ -51,8 +51,13 @@
                             <li> <a href="/home">Dashboard</a></li>
                             <li> <a href="/survey">Surveys</a></li>
                             <li> <a href="/survey-question/create">Questions</a></li>
-                            <li> <a href="#">Rewards</a></li>
-                            {{-- <li> <a href="/rewards/pay"> Pay Rewards</a></li> --}}
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Rewards</a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li> <a href="/rewards/paid">Paid Rewards</a></li>
+                                    <li> <a href="/rewards">Pending Payments</a></li>
+                                </ul>
+                            </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ ucwords(Auth::user()->name) }} <span class="caret"></span>

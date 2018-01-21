@@ -22,6 +22,11 @@ class Survey extends Model
         return $survey;
     }
 
+    public function scopeClosed()
+    {
+        return $this->where('is_open', false)->get();
+    }
+
 
     public function survey_questions()
     {
