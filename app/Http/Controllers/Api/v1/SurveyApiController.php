@@ -13,27 +13,25 @@ class SurveyApiController
 	public function getAnswered(Request $request)
 	{
 		$facebook_id = $request->facebook_id;
-		return Survey::whereHas('survey_questions')
-					 ->with(['survey_questions' => function ($query) use ($facebook_id){
-							$query->with('responses')
-								  ->whereHas('respondents_response')
-								  ->with(['respondents_response' => function ($query) use ($facebook_id) {
-								    	$query->whereIn('facebook_id', [$facebook_id]);
-								    }]);
-						}])
-					 ->get();
+		
+		$respondent_response = RespondentResponse::whereIn('facebook_id', [$facebook_id])
+			->with('survey')
+			->distinct()
+			->get();
+
+		return $respondent_response;
 	}
 
 	public function getNew(Request $request)
 	{
 		$facebook_id = $request->facebook_id;
-		return Survey::with(['survey_questions' => function ($query) use ($facebook_id){
-							$query->with('responses')
-								  ->with(['respondents_response' => function ($query) use ($facebook_id) {
-								    	$query->whereNotIn('facebook_id', [$facebook_id]);
-								    }]);
-						}])->where('is_open', 1)
-							->get();
+		
+		$respondent_response = RespondentResponse::whereNotIn('facebook_id', [$facebook_id])
+			->with('survey.survey_questions.responses')
+			->distinct()
+			->get();
+
+		return $respondent_response;
 	}
 
 	public function getSurveyQuestions(Survey $survey)
