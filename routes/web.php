@@ -27,3 +27,9 @@ Route::get('survey/{survey}/manage-questions', 'SurveyController@manageQuestions
 Route::get('rewards', 'RewardController@index');
 Route::get('rewards/paid', 'RewardController@paid');
 Route::post('rewards', 'RewardController@pay');
+Route::resource('respondents', 'SurveyRespondentController');
+
+Route::get('/update-user', 'UserController@showEdit');
+Route::post('/update-user/{user}', 'UserController@saveData');
+Route::get('/update-password', 'UserController@showPasswordEdit');
+Route::post('/update-password/{user}', 'UserController@updatePassword');

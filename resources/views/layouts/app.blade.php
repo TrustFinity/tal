@@ -64,6 +64,9 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
+                                    <li> <a href="/update-user">Update Profile</a></li>
+                                    <li> <a href="/update-password">Edit Password</a></li>
+                                    <li> <a href="/register">Create new Admin</a></li>
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
@@ -75,7 +78,6 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
-                                    <li> <a href="/register">Create new Admin</a></li>
                                 </ul>
                             </li>
                         @endif
