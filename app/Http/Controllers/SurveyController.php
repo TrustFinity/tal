@@ -54,6 +54,7 @@ class SurveyController extends Controller
 
     public function show(Survey $survey)
     {
+        $survey->load('survey_questions');
         $responses_count = RespondentResponse::where('survey_id', $survey->id)->count();
         $respondents_count = RespondentResponse::where('survey_id', $survey->id)
                                 ->distinct()
