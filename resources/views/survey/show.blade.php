@@ -2,13 +2,21 @@
 
 @section('content')
 <div class="container">
-	<h4>{{ $survey->name }}</h4>
-	<p>{{ $survey->description }}</p>
+	<div class="row">
+		<div class="col-md-6">
+			<h4>{{ $survey->name }}</h4>
+			<p>{{ $survey->description }}</p>
+		</div>
+		<div class="col-md-6">
+			<a href="/survey/{{ $survey->id }}/question" class="btn btn-success pull-right"> Add Question</a>
+		</div>
+	</div>
 </div>
 <div class="container">
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			<h4>General statistics</h4>
+			<h4>Survey Statistics.</h4>
+			<p>Graph per survey question. The graph height represents the number of people that responded with same answer.</p>
 		</div>
     	<div class="panel-body">
 			<div class="alert alert-info">
