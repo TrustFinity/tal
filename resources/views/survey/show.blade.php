@@ -17,15 +17,32 @@
 				{{ $respondents_count }} took the survey.
 			</div>
 
-			@foreach($survey->survey_questions as $question)
-				<h4>Question</h4>
-				<p>{{ $question->question }}</p>
-				@foreach($respondents_response as $response)
-					<p>{{ $response->answer }}</p>
-				@endforeach
+			@php
+				$charts = [];	
+			@endphp
+
+			@foreach($survey->survey_questions as $key=>$question)
+				@php
+					$charts[$key]=$question->renderChart();
+				@endphp
 			@endforeach
+
+			@if($charts)
+				@foreach($charts as $key=>$chart)
+					<hr class="row">
+					{!! $charts[$key]->html() !!}
+				@endforeach
+			@endif
+
     	</div>
     </div>
 
 </div>
+@endsection
+@section('scripts')
+	@if($charts)
+		@foreach($charts as $key=>$chart)
+	        {!! $charts[$key]->script() !!}
+		@endforeach
+	@endif
 @endsection
