@@ -50,7 +50,7 @@
                         @else
                             <li> <a href="/home">Dashboard</a></li>
                             <li> <a href="/survey">Surveys</a></li>
-                            <li> <a href="/survey-question/create">Questions</a></li>
+                            {{-- <li> <a href="/survey-question/create">Questions</a></li> --}}
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Rewards</a>
                                 <ul class="dropdown-menu" role="menu">
