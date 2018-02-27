@@ -32,7 +32,7 @@
 						name="restrictions" 
 						placeholder="eg. 23, Finance, Gulu" value="{{ old('restrictions', $survey->restrictions) }}">
 				</div> --}}
-				<div class="form-group">
+				{{-- <div class="form-group">
 					<span><label for="description">Close Survey</label></span> (<span class="">Optional</span>)
 					<br>
 					<span>
@@ -43,7 +43,7 @@
 						id="is_open" 
 						checked="{{ $survey->is_open }}">
 					<label for="is_open"> Uncheck to close survey</label>
-				</div>
+				</div> --}}
 			</div>
 			<div class="panel-footer">
 				<button class="btn btn-success">Update</button>

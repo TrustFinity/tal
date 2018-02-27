@@ -17,7 +17,7 @@
                 <div class="panel-heading">
 
                     <h1 class="stats"> {{ $respondents }}</h1>
-                    <p>Respondents. <a href="/respondents"> View Respondents</a></p>
+                    <p>Respondents. <a href="/respondents"> View</a></p>
                 </div>
             </div>
         </div>
@@ -43,11 +43,13 @@
     <div class="row">
         <div class="panel panel-default">
             <div class="panel-body">
-                @if(!isset($chart))
+                @if(!isset($chart) || $respondents < 3)
                     <h5>More data is needed to start rendering graphs here.</h5>
                 @endif
                 @isset ($chart)
-                    {!! $chart->html() !!}                    
+                    @if($respondents >= 3)
+                        {!! $chart->html() !!}
+                    @endif
                 @endisset
             </div>
         </div>
@@ -56,6 +58,8 @@
 @endsection
 @section('scripts')
     @isset($chart)
-        {!! $chart->script() !!}
+        @if($respondents >= 3)
+            {!! $chart->script() !!}
+        @endif
     @endisset
 @endsection

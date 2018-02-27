@@ -2,14 +2,17 @@
 
 @section('content')
 <div class="container">
-	<h3 class="pull-left">Registered Respondents</h3>
+	<h3>Registered Respondents</h3>
 </div>
 <div class="container">
 	{{ $respondents->links() }}			
 </div>
 <div class="container">
-    <div class="panel panel-default">
-    	<div class="panel-body">
+    {{-- <div class="panel panel-default">
+    	<div class="panel-body"> --}}
+    		@if($respondents->count() == 0)
+    			<div class="alert alert-info">Now Respondents registered yet.</div>
+    		@endif
     		@foreach($respondents as $respondent)
 				<div class="row list-group-item">
 					<h4 class="text-primary">
@@ -23,8 +26,8 @@
 				</div>
     		@endforeach
     	</div>
-    </div>	
-</div>
+    {{-- </div>	
+</div> --}}
 <div class="container">
 	{{ $respondents->links() }}			
 </div>
