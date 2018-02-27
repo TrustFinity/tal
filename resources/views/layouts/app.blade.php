@@ -50,7 +50,7 @@
                         @else
                             <li> <a href="/home">Dashboard</a></li>
                             <li> <a href="/survey">Surveys</a></li>
-                            <li> <a href="/survey-question/create">Questions</a></li>
+                            {{-- <li> <a href="/survey-question/create">Questions</a></li> --}}
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Rewards</a>
                                 <ul class="dropdown-menu" role="menu">
@@ -64,6 +64,9 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
+                                    <li> <a href="/update-user">Update Profile</a></li>
+                                    <li> <a href="/update-password">Edit Password</a></li>
+                                    <li> <a href="/register">Create new Admin</a></li>
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
@@ -75,7 +78,6 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
-                                    <li> <a href="/register">Create new Admin</a></li>
                                 </ul>
                             </li>
                         @endif
@@ -98,8 +100,8 @@
     </div>
 
     <script src="{{ mix('/js/app.js') }}"></script>
-    @yield('scripts')
     <script>$('#flash-overlay-modal').modal();</script>
     {!! Charts::scripts() !!}
+    @yield('scripts')
 </body>
 </html>

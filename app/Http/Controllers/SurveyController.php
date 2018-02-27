@@ -6,6 +6,7 @@ use Charts;
 use Illuminate\Http\Request;
 use App\Models\Surveys\Survey;
 use App\Models\Questions\SurveyQuestion;
+use App\Models\Responses\QuestionResponse;
 use App\Models\Responses\RespondentResponse;
 use Illuminate\Database\Eloquent\Collection;
 
@@ -48,12 +49,14 @@ class SurveyController extends Controller
             flash('Failed to create the survey')->error()->important();
             return back()->withErrors($survey->errors());
         }
-        flash('Survey created successfully. Add Survey questions below.')->important();
-        return redirect('/survey-question/create');
+        flash('Survey created successfully. Add Survey questions to this survey.')->important();
+        // return redirect('/survey-question/create');
+        return redirect('/survey/'.$survey->id);
     }
 
     public function show(Survey $survey)
     {
+        $survey->load('survey_questions');
         $responses_count = RespondentResponse::where('survey_id', $survey->id)->count();
         $respondents_count = RespondentResponse::where('survey_id', $survey->id)
                                 ->distinct()
@@ -139,5 +142,33 @@ class SurveyController extends Controller
     {
         $surveys = Survey::where('is_open', 0)->paginate(10);
         return view('survey.index_closed', compact('surveys'));
+    }
+
+    public function showQuesttionPage(Request $request, Survey $survey)
+    {
+        return view('survey.question.create', compact('survey'));
+    }
+
+    public function saveSurveyQuestion(Request $request, Survey $survey)
+    {
+        $survey_question = SurveyQuestion::make($request->all());
+        $survey_question->survey_id = $survey->id;
+        if (!$survey_question->save()) {
+            return flash('Failed to save the question')->error()->important();
+        }
+        $answers = explode(",", $request->answers);
+        if (count($answers) > 0) {
+            foreach ($answers as $answer) {
+                $question_answer = new QuestionResponse();
+                $question_answer->answer = $answer;
+                $question_answer->survey_id = $request->survey_id;
+                $question_answer->survey_question_id = $survey_question->id;
+                if (!$question_answer->save()) {
+                    return flash('Failed to save the response ( '. $answer .' ).')->error()->important();
+                }
+            }
+        }
+        flash('Question and its response added successfully to this survey.')->important();
+        return redirect('/survey/'.$survey->id);
     }
 }

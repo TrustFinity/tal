@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\SurveyRespondent;
 use Illuminate\Http\Request;
+use App\Models\Respondents\SurveyRespondent;
 
 class SurveyRespondentController extends Controller
 {
@@ -14,7 +14,8 @@ class SurveyRespondentController extends Controller
      */
     public function index()
     {
-        //
+        $respondents = SurveyRespondent::paginate(15);
+        return view('respondents.index', compact('respondents'));
     }
 
     /**
