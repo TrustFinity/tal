@@ -96,9 +96,9 @@ class SurveyController extends Controller
      */
     public function update(Request $request, Survey $survey)
     {
-        $survey->is_open = $request->is_open == null ? 0 : 1;
         $survey->update($request->all());
-        return back();
+        flash('Survey updated successfully.')->important();
+        return redirect('/survey');
     }
 
     /**
