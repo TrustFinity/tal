@@ -14,24 +14,43 @@ class SurveyApiController
 	{
 		$facebook_id = $request->facebook_id;
 		
-		$respondent_response = RespondentResponse::whereIn('facebook_id', [$facebook_id])
-			->with('survey')
-			->distinct()
-			->get();
+		// $respondent_response = RespondentResponse::whereIn('facebook_id', [$facebook_id])
+		// 	->with('survey')
+		// 	->distinct()
+		// 	->get();
+		$surveys = Survey::whereHas('survey_questions', function($q) use ($facebook_id) {
+			$q->whereHas('respondents_response', function($q) use ($facebook_id) {
+				$q->where('facebook_id', $facebook_id);
+			});
+		})->get();
 
-		return $respondent_response;
+		return $surveys;
 	}
 
 	public function getNew(Request $request)
 	{
 		$facebook_id = $request->facebook_id;
 		
-		$respondent_response = RespondentResponse::whereNotIn('facebook_id', [$facebook_id])
-			->with('survey.survey_questions.responses')
-			->distinct()
-			->get();
+		// $respondent_response = RespondentResponse::whereNotIn('facebook_id', [$facebook_id])
+		// 	->with('survey.survey_questions.responses')
+		// 	->distinct()
+		// 	->get();
+		
+		$surveys = Survey::whereHas('survey_questions', function($q) use ($facebook_id) {
+						$q->whereHas('respondents_response', function($q) use ($facebook_id) {
+							$q->where('facebook_id', '!=', $facebook_id);
+						});
+					})->with('survey_questions.responses')
+					  ->get();
 
-		return $respondent_response;
+		$doesnt_have = Survey::whereHas('survey_questions', function($q) use ($facebook_id) {
+							$q->doesntHave('respondents_response');
+						})->with('survey_questions.responses')
+						  ->get();
+
+		$surveys = $surveys->merge($doesnt_have);
+
+		return $surveys;
 	}
 
 	public function getSurveyQuestions(Survey $survey)
