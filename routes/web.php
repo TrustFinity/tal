@@ -25,6 +25,7 @@ Route::get('survey/{survey}/close', 'SurveyController@close');
 Route::get('survey/{survey}/manage-questions', 'SurveyController@manageQuestions');
 Route::get('survey/{survey}/question', 'SurveyController@showQuesttionPage');
 Route::post('survey/{survey}/question', 'SurveyController@saveSurveyQuestion');
+Route::get('survey/{survey}/respondent-demographic-data', 'SurveyController@demographicData');
 
 
 Route::resource('survey-question', 'SurveyQuestionController');

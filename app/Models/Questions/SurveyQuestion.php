@@ -7,7 +7,6 @@ use App\Models\Surveys\Survey;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Responses\QuestionResponse;
 use App\Models\Responses\RespondentResponse;
-use App\Models\Respondents\SurveyRespondent;
 use ConsoleTVs\Charts\Builder;
 
 class SurveyQuestion extends Model
@@ -28,11 +27,6 @@ class SurveyQuestion extends Model
     public function responses()
     {
     	return $this->hasMany(QuestionResponse::class);
-    }
-
-    public function respondents()
-    {
-    	return $this->hasMany(SurveyRespondent::class);
     }
 
     public function respondents_response()

@@ -3,7 +3,9 @@
 namespace App\Models\Respondents;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Questions\SurveyQuestion;
 use App\Models\Responses\QuestionResponse;
+use App\Models\Responses\RespondentResponse;
 
 class SurveyRespondent extends Model
 {
@@ -25,5 +27,15 @@ class SurveyRespondent extends Model
     public function responses()
     {
     	return $this->hasMany(QuestionResponse::class);
+    }
+
+    public function survey_questions()
+    {
+        return $this->hasMany(SurveyQuestion::class);
+    }
+
+    public function respondent_responses()
+    {
+        return $this->hasMany(RespondentResponse::class);
     }
 }

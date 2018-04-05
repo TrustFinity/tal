@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Surveys\Survey;
 use App\Models\Questions\SurveyQuestion;
 use App\Models\Responses\QuestionResponse;
+use App\Models\Respondents\SurveyRespondent;
 use App\Models\Responses\RespondentResponse;
 use Illuminate\Database\Eloquent\Collection;
 
@@ -170,5 +171,11 @@ class SurveyController extends Controller
         }
         flash('Question and its response added successfully to this survey.')->important();
         return redirect('/survey/'.$survey->id);
+    }
+
+    public function demographicData(Survey $survey)
+    {
+        $survey->load('survey_questions');
+        return view('survey.demographics', compact('survey'));
     }
 }

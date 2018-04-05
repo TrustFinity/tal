@@ -15,8 +15,18 @@
 <div class="container">
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			<h4>Survey Statistics.</h4>
-			<p>Graph per survey question. The graph height represents the number of people that responded with same answer.</p>
+			<div class="row">
+				<div class="col-sm-8">
+					<h4>Survey Statistics.</h4>
+					<p>Graph per survey question. The graph height represents the number of people that responded with same answer.</p>
+				</div>
+				<div class="col-sm-4">
+					<a href="/survey/{{ $survey->id }}/respondent-demographic-data" 
+						class="btn btn-primary pull-right">
+						Respondents Demographic Data
+					</a>
+				</div>
+			</div>
 		</div>
     	<div class="panel-body">
 			<div class="alert alert-info">

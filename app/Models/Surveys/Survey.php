@@ -6,7 +6,7 @@ use Auth;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Questions\SurveyQuestion;
 use App\Models\Responses\RespondentResponse;
-use App\Modesls\Respondents\SurveyRespondent;
+use App\Models\Respondents\SurveyRespondent;
 
 class Survey extends Model
 {
