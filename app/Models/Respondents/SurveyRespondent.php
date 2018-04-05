@@ -21,7 +21,8 @@ class SurveyRespondent extends Model
 		'city',
 		'country',
 		'facebook_id',
-		'image_url'
+		'image_url',
+		'gender'
 	];
 
     public function responses()
