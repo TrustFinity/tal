@@ -41,11 +41,13 @@ class SurveyApiController
 							$q->where('facebook_id', '!=', $facebook_id);
 						});
 					})->with('survey_questions.responses')
+					  ->where('is_open', 1)
 					  ->get();
 
 		$doesnt_have = Survey::whereHas('survey_questions', function($q) use ($facebook_id) {
 							$q->doesntHave('respondents_response');
 						})->with('survey_questions.responses')
+						  ->where('is_open', 1)
 						  ->get();
 
 		$surveys = $surveys->merge($doesnt_have);
