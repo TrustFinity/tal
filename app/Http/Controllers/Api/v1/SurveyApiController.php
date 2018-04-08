@@ -36,6 +36,8 @@ class SurveyApiController
 		// 	->distinct()
 		// 	->get();
 		
+		// Surveys that have been answered by the rspondent shouldn't be listed
+		// amongst the new surveys.
 		$surveys = Survey::whereHas('survey_questions', function($q) use ($facebook_id) {
 						$q->whereHas('respondents_response', function($q) use ($facebook_id) {
 							$q->where('facebook_id', '!=', $facebook_id);

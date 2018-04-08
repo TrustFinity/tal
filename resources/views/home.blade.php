@@ -41,16 +41,18 @@
     </div>
 
     <div class="row">
-        <div class="panel panel-default">
-            <div class="panel-body">
-                @if(!isset($chart) || $respondents < 3)
-                    <h5>More data is needed to start rendering graphs here.</h5>
-                @endif
-                @isset ($chart)
-                    @if($respondents >= 3)
-                        {!! $chart->html() !!}
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    @if(!isset($chart) || $respondents < 3)
+                        <h5>More data is needed to start rendering graphs here.</h5>
                     @endif
-                @endisset
+                    @isset ($chart)
+                        @if($respondents >= 3)
+                            {{-- {!! $chart->html() !!} --}}
+                        @endif
+                    @endisset
+                </div>
             </div>
         </div>
     </div>
@@ -59,7 +61,7 @@
 @section('scripts')
     @isset($chart)
         @if($respondents >= 3)
-            {!! $chart->script() !!}
+            {{-- {!! $chart->script() !!} --}}
         @endif
     @endisset
 @endsection
