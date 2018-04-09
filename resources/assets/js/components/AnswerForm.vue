@@ -1,18 +1,18 @@
 <template>
     <div>
-        <div class="form-group">
+        <!-- <div class="form-group">
             <span><label for="question">Answer type</label></span> (<span class="text-danger">Required</span>)
             <br>
             <span>Would this question be open ended or an objective type</span>
             <select v-model="answer_type" name="answer_type" id="answer_type" class="form-control">
-                <!-- <option value="open_ended">Open Ended</option> -->
+                <option value="open_ended">Open Ended</option>
                 <option value="objective_type">Objective Type</option>
             </select>
-        </div>
+        </div> -->
         <div class="form-group" v-if="answer_type == 'objective_type'">
             <span><label for="question">Answers</label></span> (<span class="text-danger">Required</span>)
             <br>
-            <span>Two or more answers for this quetion depending on the expected outcome</span>
+            <span>Two or more answers for this question depending on the expected outcome</span>
             <div v-for="answer in answers">
                 <span class="text-success" >- {{ answer }}</span><br>
             </div>
@@ -43,6 +43,10 @@
         },
         methods: {
             addAnswer(answer, event){
+                if (answer.length == 0) {
+                    alert('You need to provide an answer')
+                    return
+                }
                 this.answers.push(answer)
                 this.answer = ''
             }

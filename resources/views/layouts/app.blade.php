@@ -100,7 +100,11 @@
     </div>
 
     <script src="{{ mix('/js/app.js') }}"></script>
-    <script>$('#flash-overlay-modal').modal();</script>
+    <script>
+        $(function() {
+            $('#flash-overlay-modal').modal();
+        })
+    </script>
     {!! Charts::scripts() !!}
     @yield('scripts')
 </body>

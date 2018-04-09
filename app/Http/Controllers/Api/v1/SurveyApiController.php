@@ -38,23 +38,25 @@ class SurveyApiController
 		
 		// Surveys that have been answered by the rspondent shouldn't be listed
 		// amongst the new surveys.
-		$surveys = Survey::whereHas('survey_questions', function($q) use ($facebook_id) {
-						$q->whereHas('respondents_response', function($q) use ($facebook_id) {
-							$q->where('facebook_id', '!=', $facebook_id);
-						});
-					})->with('survey_questions.responses')
-					  ->where('is_open', 1)
-					  ->get();
-
-		$doesnt_have = Survey::whereHas('survey_questions', function($q) use ($facebook_id) {
-							$q->doesntHave('respondents_response');
+		$not_answered = Survey::whereHas('survey_questions', function($q) use ($facebook_id) {
+							$q->whereHas('respondents_response', function($q) use ($facebook_id) {
+								$q->where('facebook_id', '!=', $facebook_id);
+							});
 						})->with('survey_questions.responses')
+						  ->with('survey_questions.respondents_response')
 						  ->where('is_open', 1)
 						  ->get();
 
-		$surveys = $surveys->merge($doesnt_have);
+		// $no_responses = Survey::whereHas('survey_questions', function($q) use ($facebook_id) {
+		// 					$q->doesntHave('respondents_response');
+		// 				})->with('survey_questions.responses')
+		// 				  ->where('is_open', 1)
+		// 				  ->get();
 
-		return $surveys;
+		return $not_answered;
+
+		// $surveys = $not_answered->merge($no_responses);
+		// return $surveys;
 	}
 
 	public function getSurveyQuestions(Survey $survey)

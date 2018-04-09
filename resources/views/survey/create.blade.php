@@ -22,7 +22,7 @@
 				<div class="form-group">
 					<span><label for="description">Survey Description</label></span> (<span class="text-danger">Required</span>)
 					<br>
-					<span>Descript the purpose of this survey with its targets</span>
+					<span>Describe the purpose of this survey with its targets</span>
 					<textarea type="text" name="description" id="description" class="form-control" required>{{ old('description') }}
 					</textarea>
 				</div>
