@@ -25,6 +25,7 @@ Route::group([
 	Route::get('/get-for-user', 'SurveyApiController@getNew');
 	Route::get('/get-profile', 'SurveyApiController@getProfile');
 	Route::get('/get-survey-questions/{survey}', 'SurveyApiController@getSurveyQuestions');
+	Route::get('/get-answered-survey-questions/{survey}', 'SurveyApiController@getSurveyQuestionsWithRespondentsResponse');
 	Route::post('/answer/{survey}/{survey_question}', 'SurveyApiController@answerSurvey');
 	Route::post('/new-respondent', 'SurveyApiController@createNewRespondent');
 	Route::put('/update-respondent', 'SurveyApiController@updateRespondentData');

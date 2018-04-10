@@ -61,9 +61,21 @@ class SurveyApiController
 
 	public function getSurveyQuestions(Survey $survey)
 	{
+		// Check if the user has already answered the survey and
+		// respond with answered.
+		// or else load the questions.
 		return SurveyQuestion::where('survey_id', $survey->id)
 							 ->with('responses')
 							 ->get();			
+	}
+
+	public function getSurveyQuestionsWithRespondentsResponse(Request $request, Survey $survey)
+	{
+		$facebook_id = $request->facebook_id;
+		return RespondentResponse::where('survey_id', $survey->id)
+							 ->where('facebook_id', $facebook_id)
+							 ->with('survey_question')
+							 ->get();	
 	}
 
 	public function answerSurvey(Survey $survey, SurveyQuestion $survey_question, Request $request)
