@@ -59,7 +59,7 @@ class SurveyApiController
 		// return $surveys;
 	}
 
-	public function getSurveyQuestions(Survey $survey)
+	public function getSurveyQuestions(Request $request, Survey $survey)
 	{
 		// Check if the user has already answered the survey and
 		// respond with answered.
