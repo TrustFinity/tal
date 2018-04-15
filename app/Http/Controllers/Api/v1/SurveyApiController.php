@@ -47,16 +47,17 @@ class SurveyApiController
 						  ->where('is_open', 1)
 						  ->get();
 
-		// $no_responses = Survey::whereHas('survey_questions', function($q) use ($facebook_id) {
-		// 					$q->doesntHave('respondents_response');
-		// 				})->with('survey_questions.responses')
-		// 				  ->where('is_open', 1)
-		// 				  ->get();
+		$no_responses = Survey::whereHas('survey_questions', function($q) use ($facebook_id) {
+							$q->doesntHave('respondents_response');
+						})->with('survey_questions.responses')
+						  ->with('survey_questions.respondents_response')
+						  ->where('is_open', 1)
+						  ->get();
 
-		return $not_answered;
+		// return $not_answered;
 
-		// $surveys = $not_answered->merge($no_responses);
-		// return $surveys;
+		$surveys = $not_answered->merge($no_responses);
+		return $surveys;
 	}
 
 	public function getSurveyQuestions(Request $request, Survey $survey)
