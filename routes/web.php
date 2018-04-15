@@ -29,6 +29,8 @@ Route::get('survey/{survey}/respondent-demographic-data', 'SurveyController@demo
 
 
 Route::resource('survey-question', 'SurveyQuestionController');
+Route::delete('/survey-question/{survey_question}/response/{response}/delete', 'SurveyQuestionController@deleteResponse');
+
 Route::resource('respondent-response', 'RespondentResponseController');
 
 Route::get('rewards', 'RewardController@index');

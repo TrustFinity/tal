@@ -40,17 +40,20 @@ class SurveyQuestionController extends Controller
         $survey_question = SurveyQuestion::make($request->all());
         $survey_question->survey_id = $request->id;
         if (!$survey_question->save()) {
-            return flash('Failed to save the question')->error()->important();
+            flash('Failed to save the question')->error()->important();
+            return back();
         }
         $answers = explode(",", $request->answers);
         if (count($answers) > 0) {
             foreach ($answers as $answer) {
-                $question_answer = new QuestionResponse();
-                $question_answer->answer = $answer;
-                $question_answer->survey_id = $request->survey_id;
-                $question_answer->survey_question_id = $survey_question->id;
-                if (!$question_answer->save()) {
-                    return flash('Failed to save the response ( '. $answer .' ).')->error()->important();
+                if (strlen($answer) > 0) {
+                    $question_answer = new QuestionResponse();
+                    $question_answer->answer = $answer;
+                    $question_answer->survey_id = $request->survey_id;
+                    $question_answer->survey_question_id = $survey_question->id;
+                    if (!$question_answer->save()) {
+                        return flash('Failed to save the response ( '. $answer .' ).')->error()->important();
+                    }
                 }
             }
         }
@@ -76,6 +79,8 @@ class SurveyQuestionController extends Controller
      */
     public function edit(SurveyQuestion $survey_question)
     {
+        $survey_question->load('responses');
+        return view('surveyquestion.edit', compact('survey_question'));
     }
 
     /**
@@ -87,6 +92,26 @@ class SurveyQuestionController extends Controller
      */
     public function update(Request $request, SurveyQuestion $survey_question)
     {
+        if (!$survey_question->update($request->all())) {
+            return flash('Failed to save the question')->error()->important();
+        }
+        $answers = explode(",", $request->answers);
+
+        if (count($answers) > 0) {
+            foreach ($answers as $answer) {
+                if (strlen($answer) > 0) {
+                    $question_answer = new QuestionResponse();
+                    $question_answer->answer = $answer;
+                    $question_answer->survey_id = $survey_question->survey_id;
+                    $question_answer->survey_question_id = $survey_question->id;
+                    if (!$question_answer->save()) {
+                        return flash('Failed to save the response ( '. $answer .' ).')->error()->important();
+                    }
+                }
+            }
+        }
+        flash('Question and its response updated successfully.')->important();
+        return back();
     }
 
     /**
@@ -102,6 +127,16 @@ class SurveyQuestionController extends Controller
             return back();
         }
         flash('Question successfully deleted')->important();
+        return back();
+    }
+
+    public function deleteResponse(SurveyQuestion $survey_question, QuestionResponse $response)
+    {
+        if (!$response->delete()) {
+            flash('Failed to delete '.$response->answer)->error();
+            return back();
+        }
+        flash('Successfully deleted '.$response->answer)->success();
         return back();
     }
 }

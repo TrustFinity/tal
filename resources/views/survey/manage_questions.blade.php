@@ -17,10 +17,11 @@
 				@endif
 				@foreach($questions as $question)
 					<h4>{{ $question->question }}</h4>
-					<form action="/survey-question/{{$question->id}}" method="POST">
+					<a href="/survey-question/{{$question->id}}/edit">Click to edit</a>
+					<form action="/survey-question/{{$question->id}}" method="POST" class="pull-right">
 						{{ csrf_field() }}
 						{{ method_field('DELETE') }}
-						<button type="submit" class="btn btn-danger btn-xs">Delete</button>
+						<button type="submit" class="btn btn-danger">Delete</button>
 					</form>
 					<hr class="row">
 				@endforeach
